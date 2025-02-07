@@ -1,0 +1,21 @@
+{
+  "name": "minerva",
+  "main": "index.html",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "serve": "^14.2.4"
+  },
+  "scripts": {
+    "start": "bun dev",
+    "dev": "bun dev",
+    "build": "bun build src/*.jsx --outdir=dist"
+  }
+}

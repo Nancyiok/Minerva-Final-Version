@@ -1,0 +1,152 @@
+.team {
+    background-color: var(--team-section-background-color);
+    color: var(--dark-text-color);
+}
+
+.team__member {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    text-align: left;
+    max-width: 280px;
+}
+
+.team__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team__header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team__title {
+    position: relative;
+    top: 15px;
+    font-weight: 700;
+}
+
+.team__member-links a {
+    text-decoration: none;
+}
+
+.team__member-description {
+    font-weight: 500;
+}
+
+p.team__subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black-text-color);
+}
+
+.team__member-role {
+    font-weight: 600;
+    color: var(--black-text-color);
+}
+
+.team__member-name {
+    font-weight: 700;
+}
+
+.form-update__message {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--team-section-form-update-message-warning);
+}
+
+.form-update__message-success {
+    color: var(--team-section-form-update-message-success);
+}
+
+.form-update__message-warning {
+    color: var(--team-section-form-update-message-warning);
+}
+
+.form-update__message-error {
+    color: var(--team-section-form-update-message-error);
+}
+
+.form-update__message-before-submit {
+    color: var(--dark-text-color);
+}
+
+.form-update {
+    margin-top: 40px;
+    padding: 10px 10px 40px 10px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 450px));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-update__сonditionality {
+    color: var(--dark-text-color);
+    font-size: 14px;
+}
+
+.form-update__input {
+    height: 38.8px;
+    width: 70%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--decoration-line-color);
+    color: var(--dark-text-color);
+}
+
+.form-update__input::placeholder {
+    color: var(--dark-text-color);
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+}
+
+.form-update__button {
+    margin: 10px 0;
+    font-size: 14px;
+    padding: 11px 20px;
+    font-weight: 500;
+    background-color: var(--button-dark-color);
+    color: var(--bright-text-color);
+    border: none;
+}
+
+.team__title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.team__header-container {
+    padding: 40px;
+}
+
+@media (min-width: 800px) {
+
+    .team__title {
+        font-size: 36px;
+        padding: 5px;
+    }
+
+    .team__decor--left,
+    .team__decor--right {
+        transform: scale(1.5);
+    }
+
+
+    .form-update {
+        text-align: left;
+    }
+
+    .form-update__input::placeholder {
+        font-size: 16px;
+    }
+}
+

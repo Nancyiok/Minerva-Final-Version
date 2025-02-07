@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../log-in/log-in-css/log-in.css">
+</head>
+
+<body>
+    <main class="sign-in">
+        <header class="sign-in__header">
+            <div class="sign-in__logo-container">
+                <a href="/index.html" class="sign-in__logo">
+                    <img src="../sign-up-page/img/логотип.svg" alt="Minerva logo">
+                </a>
+            </div>
+            <div class="log-in__log-up-button">
+                <a href="/web/sign-up-page/sign-up-page.html"><button
+                        class="sign-up__login-button-text">Зареєструватися</button></a>
+            </div>
+        </header>
+        <hr class="header-navigation__decoration-line">
+        <div class="sign-in__content active">
+            <form class="sign-in-form" action="">
+                <header class="sign-in-form__header">
+                    <div class="sign-in-form_decoration-container"><img class="sign-in-form_decoration-hat"
+                            src="/web/log-in/log-in-img/hat.svg"> </div>
+                    <p class="sign-in-form__title">З поверненням!</p>
+                </header>
+                <div class="sign-in-form__check-account">
+                    <a href="/web/sign-up-page/sign-up-page.html" class="sign-in-form__check-account-link">Вперше на
+                        платформі?</a>
+                </div>
+                <div class="sign-in-form__inputs">
+                    <input class="sign-in-form__input sign-in-form__input--email" type="email" placeholder="Ваша пошта"
+                        autocomplete="email">
+                    <input class="sign-in-form__input sign-in-form__input--password" id="password" type="password"
+                        placeholder="Ваш пароль">
+                </div>
+                <div class="sign-in-form__message"></div>
+                <div class="sign-in-form__forgot-password">
+                    <a href="#" class="sign-in-form__forgot-password-link">Забули пароль?</a>
+                </div>
+                <div class="sign-in-form__buttons">
+                    <button class="sign-in-form__submit-button">Увійти<svg width="10" height="16" viewBox="0 0 10 16"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.74748 15.4809C1.45401 15.4814 1.1696 15.3937 0.943631 15.233C0.816449 15.1425 0.711319 15.0314 0.634261 14.906C0.557202 14.7806 0.50973 14.6433 0.494562 14.5022C0.479395 14.361 0.496831 14.2186 0.545871 14.0832C0.594911 13.9478 0.674591 13.8221 0.78035 13.7131L6.40726 7.93543L0.981312 2.14694C0.87698 2.03668 0.799068 1.90981 0.752053 1.77363C0.705039 1.63744 0.689849 1.49463 0.707357 1.35339C0.724864 1.21215 0.774724 1.07527 0.854071 0.950622C0.933418 0.825974 1.04069 0.716013 1.16971 0.627059C1.29967 0.528928 1.45185 0.454909 1.61672 0.409648C1.78158 0.364387 1.95557 0.34886 2.12776 0.364043C2.29995 0.379225 2.46663 0.424789 2.61733 0.497875C2.76802 0.570961 2.89949 0.66999 3.00348 0.788749L9.07 7.25633C9.25473 7.44921 9.35572 7.69114 9.35572 7.94082C9.35572 8.19049 9.25473 8.43243 9.07 8.6253L2.78996 15.0929C2.66396 15.2233 2.5039 15.3265 2.32278 15.3939C2.14165 15.4613 1.94455 15.4911 1.74748 15.4809Z"
+                                fill="white" />
+                        </svg>
+                        <!-- </button></button> -->
+                </div>
+            </form>
+        </div>
+        <div class="sign-in__content-forgot-password">
+            <form class="sign-in-form" action="">
+                <header class="sign-in-form__header">
+                    <div class="sign-in-form_decoration-container"><img class="sign-in-form_decoration-hat"
+                            src="/web/log-in/log-in-img/hat.svg"> </div>
+                    <button class="sign-in-form__back-button1">
+                        <svg width="25" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM1 9L35 9L35 7L1 7L1 9Z"
+                                fill="#1F545B" />
+                        </svg>
+                    </button>
+                    <p class="sign-in-form__title">Забули пароль?</p>
+                </header>
+                <div class="sign-in-form__message-container-forgot-password">
+                    <p>Ми надішлемо на вашу пошту повідомлення для скидання паролю.</p>
+                </div>
+                <div class="sign-in-form__inputs">
+                    <input class="sign-in-form__input sign-in-form__input--reset-password-email" type="email"
+                        placeholder="Ваша пошта" autocomplete="email">
+                </div>
+                <div class="sign-in-form__message-reset-password"></div>
+                <div class="sign-in-form__buttons">
+                    <button class="sign-in-form__submit-button-forgot-password">Далі<svg width="10" height="16"
+                            viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.74748 15.4809C1.45401 15.4814 1.1696 15.3937 0.943631 15.233C0.816449 15.1425 0.711319 15.0314 0.634261 14.906C0.557202 14.7806 0.50973 14.6433 0.494562 14.5022C0.479395 14.361 0.496831 14.2186 0.545871 14.0832C0.594911 13.9478 0.674591 13.8221 0.78035 13.7131L6.40726 7.93543L0.981312 2.14694C0.87698 2.03668 0.799068 1.90981 0.752053 1.77363C0.705039 1.63744 0.689849 1.49463 0.707357 1.35339C0.724864 1.21215 0.774724 1.07527 0.854071 0.950622C0.933418 0.825974 1.04069 0.716013 1.16971 0.627059C1.29967 0.528928 1.45185 0.454909 1.61672 0.409648C1.78158 0.364387 1.95557 0.34886 2.12776 0.364043C2.29995 0.379225 2.46663 0.424789 2.61733 0.497875C2.76802 0.570961 2.89949 0.66999 3.00348 0.788749L9.07 7.25633C9.25473 7.44921 9.35572 7.69114 9.35572 7.94082C9.35572 8.19049 9.25473 8.43243 9.07 8.6253L2.78996 15.0929C2.66396 15.2233 2.5039 15.3265 2.32278 15.3939C2.14165 15.4613 1.94455 15.4911 1.74748 15.4809Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="sign-in__content-restore-password-code-sent">
+            <form class="sign-in-form" action="">
+                <header class="sign-in-form__header">
+                    <div class="sign-in-form_decoration-container"><img class="sign-in-form_decoration-hat"
+                            src="/web/log-in/log-in-img/hat.svg"> </div>
+                    <button class="sign-in-form__back-button2">
+                        <svg width="25" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM1 9L35 9L35 7L1 7L1 9Z"
+                                fill="#1F545B" />
+                        </svg>
+                    </button>
+                    <p class="sign-in-form__title-code">Вам на пошту було надіслано код підтвердження. Введіть його для
+                        завершення реєстрації</p>
+                </header>
+                <div class="sign-in-form__inputs">
+                    <input class="sign-up-form__code-input" type="text" maxlength="5" minlength="5">
+                </div>
+                <div class="sign-in-form__message-code"></div>
+                <div class="sign-in-form__buttons">
+                    <button class="sign-in-form__submit-button-code-sent">Далі<svg width="10" height="16"
+                            viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.74748 15.4809C1.45401 15.4814 1.1696 15.3937 0.943631 15.233C0.816449 15.1425 0.711319 15.0314 0.634261 14.906C0.557202 14.7806 0.50973 14.6433 0.494562 14.5022C0.479395 14.361 0.496831 14.2186 0.545871 14.0832C0.594911 13.9478 0.674591 13.8221 0.78035 13.7131L6.40726 7.93543L0.981312 2.14694C0.87698 2.03668 0.799068 1.90981 0.752053 1.77363C0.705039 1.63744 0.689849 1.49463 0.707357 1.35339C0.724864 1.21215 0.774724 1.07527 0.854071 0.950622C0.933418 0.825974 1.04069 0.716013 1.16971 0.627059C1.29967 0.528928 1.45185 0.454909 1.61672 0.409648C1.78158 0.364387 1.95557 0.34886 2.12776 0.364043C2.29995 0.379225 2.46663 0.424789 2.61733 0.497875C2.76802 0.570961 2.89949 0.66999 3.00348 0.788749L9.07 7.25633C9.25473 7.44921 9.35572 7.69114 9.35572 7.94082C9.35572 8.19049 9.25473 8.43243 9.07 8.6253L2.78996 15.0929C2.66396 15.2233 2.5039 15.3265 2.32278 15.3939C2.14165 15.4613 1.94455 15.4911 1.74748 15.4809Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="sign-in__content-new-password">
+            <form class="sign-in-form" action="">
+                <header class="sign-in-form__header">
+                    <div class="sign-in-form_decoration-container"><img class="sign-in-form_decoration-hat"
+                            src="/web/log-in/log-in-img/hat.svg"> </div>
+                    <button class="sign-in-form__back-button3">
+                        <svg width="25" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM1 9L35 9L35 7L1 7L1 9Z"
+                                fill="#1F545B" />
+                        </svg>
+                    </button>
+                    <p class="sign-in-form__title">Вигадайте новий пароль</p>
+                </header>
+                <div class="sign-in-form__inputs">
+                    <div class="sign-in-form__new-password-container">
+                        <class class="sign-in-form__password-container-with-toggle">
+                            <input class="sign-in-form__input sign-in-form__input--new-password" id="new-password"
+                                type="password" placeholder="Введіть новий пароль">
+                            <button class="sign-in-form__toggle-password-button" type="button">
+                                <svg width="30" height="20" viewBox="0 0 96 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M47.5 1.5002C27.9443 2.00795 3 24.5002 3 24.5002C3 24.5002 28.1144 46.6364 47.5 46.5002C67.6806 46.3584 93 22.0002 93 22.0002C93 22.0002 66.9825 0.994356 47.5 1.5002Z"
+                                        stroke="#1F545B" stroke-width="3" />
+                                    <path
+                                        d="M32.0603 22C33.1251 12.0545 48 4.5 48 4.5C48 4.5 62.7076 12.1554 63.5603 22C64.5652 33.6021 47.5 42.5 47.5 42.5C47.5 42.5 30.8768 33.0548 32.0603 22Z"
+                                        fill="#1F545B" />
+                                    <ellipse cx="41.5" cy="23" rx="2.5" ry="4" fill="white" />
+                                </svg>
+                            </button>
+                        </class>
+                        <input class="sign-in-form__input sign-up-form__input--submit-password" id="sumbit-new-password"
+                            type="password" placeholder="Підтвердіть  пароль">
+                        </button>
+                        <div class="sign-in-form__message-change-password"></div>
+                    </div>
+
+                </div>
+                <div class="sign-in-form__buttons">
+                    <button class="sign-in-form__submit-button-change-password">Змінити пароль<svg width="10"
+                            height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.74748 15.4809C1.45401 15.4814 1.1696 15.3937 0.943631 15.233C0.816449 15.1425 0.711319 15.0314 0.634261 14.906C0.557202 14.7806 0.50973 14.6433 0.494562 14.5022C0.479395 14.361 0.496831 14.2186 0.545871 14.0832C0.594911 13.9478 0.674591 13.8221 0.78035 13.7131L6.40726 7.93543L0.981312 2.14694C0.87698 2.03668 0.799068 1.90981 0.752053 1.77363C0.705039 1.63744 0.689849 1.49463 0.707357 1.35339C0.724864 1.21215 0.774724 1.07527 0.854071 0.950622C0.933418 0.825974 1.04069 0.716013 1.16971 0.627059C1.29967 0.528928 1.45185 0.454909 1.61672 0.409648C1.78158 0.364387 1.95557 0.34886 2.12776 0.364043C2.29995 0.379225 2.46663 0.424789 2.61733 0.497875C2.76802 0.570961 2.89949 0.66999 3.00348 0.788749L9.07 7.25633C9.25473 7.44921 9.35572 7.69114 9.35572 7.94082C9.35572 8.19049 9.25473 8.43243 9.07 8.6253L2.78996 15.0929C2.66396 15.2233 2.5039 15.3265 2.32278 15.3939C2.14165 15.4613 1.94455 15.4911 1.74748 15.4809Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="sign-in__content-change-success">
+            <form class="sign-in-form" action="">
+                <header class="sign-in-form__header">
+                    <div class="sign-in-form_decoration-container"><img class="sign-in-form_decoration-hat"
+                            src="/web/log-in/log-in-img/hat.svg"> </div>
+                    <button class="sign-in-form__back-button4">
+                        <svg width="25" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM1 9L35 9L35 7L1 7L1 9Z"
+                                fill="#1F545B" />
+                        </svg>
+                    </button>
+                    <p class="sign-in-form__title">Вітаємо пароль змінено!</p>
+                </header>
+
+                <div class="sign-in-form__buttons">
+                    <button class="sign-in-form__submit-button-to-main">На головну<svg width="10" height="16"
+                            viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.74748 15.4809C1.45401 15.4814 1.1696 15.3937 0.943631 15.233C0.816449 15.1425 0.711319 15.0314 0.634261 14.906C0.557202 14.7806 0.50973 14.6433 0.494562 14.5022C0.479395 14.361 0.496831 14.2186 0.545871 14.0832C0.594911 13.9478 0.674591 13.8221 0.78035 13.7131L6.40726 7.93543L0.981312 2.14694C0.87698 2.03668 0.799068 1.90981 0.752053 1.77363C0.705039 1.63744 0.689849 1.49463 0.707357 1.35339C0.724864 1.21215 0.774724 1.07527 0.854071 0.950622C0.933418 0.825974 1.04069 0.716013 1.16971 0.627059C1.29967 0.528928 1.45185 0.454909 1.61672 0.409648C1.78158 0.364387 1.95557 0.34886 2.12776 0.364043C2.29995 0.379225 2.46663 0.424789 2.61733 0.497875C2.76802 0.570961 2.89949 0.66999 3.00348 0.788749L9.07 7.25633C9.25473 7.44921 9.35572 7.69114 9.35572 7.94082C9.35572 8.19049 9.25473 8.43243 9.07 8.6253L2.78996 15.0929C2.66396 15.2233 2.5039 15.3265 2.32278 15.3939C2.14165 15.4613 1.94455 15.4911 1.74748 15.4809Z"
+                                fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.arrow.partial.html">
+    </aside>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script src="/web/log-in/js/log-in.js"></script>
+</body>
+
+</html>

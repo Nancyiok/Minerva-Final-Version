@@ -1,0 +1,412 @@
+@import "/web/css/global.css";
+@import "/web/css/footer.css";
+
+.sign-in-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--form-decoration-color);
+    gap: 25px;
+    padding: 20px;
+    background-color: var(--bright-button-color);
+    animation: fadeIn 1s;
+    width: 100%;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sign-in__content.active {
+    margin: 70px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-in__content {
+    display: none;
+}
+
+.header-navigation__decoration-line {
+    border: 1px solid var(--black-text-color);
+    width: 100%;
+}
+
+.sign-in-form__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sign-in-form__header {
+    padding: 10px 0;
+}
+
+
+.sign-in-form__title {
+    color: var(--dark-text-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.sign-in-form_decoration-hat {
+    display: block;
+    min-width: 150px;
+    min-height: 80px;
+    margin: auto;
+}
+
+.sign-in {
+    background: url("/web/sign-up-page/img/signup-phone-background.svg") no-repeat center center/cover;
+}
+
+@media (min-width: 500px) {
+    .sign-in {
+        background: url("/web/sign-up-page/img/signup-tablet-background.svg") no-repeat center center/cover;
+    }
+}
+
+@media (max-width: 800px) {
+    .sign-in {
+        background: url("/web/sign-up-page/img/signup-tablet-background.svg") no-repeat center center/cover;
+    }
+}
+
+@media (min-width: 1000px) {
+    .sign-in {
+        background: url("/web/sign-up-page/img/signup-computer-background.svg") no-repeat center center/cover;
+    }
+}
+@media (min-width: 1200px) {
+    .sign-in {
+        background: url("/web/sign-up-page/img/modal-window-background.svg") no-repeat center right/cover;
+    }
+
+}
+
+.sign-in-form__check-account-link {
+    font-size: 1rem;
+    color: var(--black-text-color);
+    font-weight: 600;
+}
+
+.sign-in__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    background-color: var(--bright-text-color);
+    gap: 10px;
+}
+
+.sign-in__logo {
+    width: 100px;
+}
+
+.sign-in-form__input::placeholder {
+    font-family: Montserrat, sans-serif;
+    color: var(--black-text-color);
+    font-weight: 600;
+}
+
+.sign-in-form__input:focus {
+    border-color: var(--accordion-dark-background-color);
+    outline: none;
+    background-color: #f0f8ff;
+}
+
+.sign-in-form__input {
+    border: 2px solid var(--button-decoration-color);
+    padding: 20px 30px;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.sign-in-form__forgot-password-link {
+    font-size: 1rem;
+    color: var(--dark-text-color);
+    font-weight: 600;
+}
+
+.sign-in-form__inputs {
+    width: 100%;
+}
+
+.sign-in-form__input {
+    width: 100%;
+}
+
+@media (min-width: 800px) {
+    .sign-in-form__inputs {
+        width: 50%;
+    }
+
+    .sign-in-form {
+        max-width: 700px;
+    }
+
+    .sign-in-form__title {
+        font-size: 2rem;
+    }
+
+    .sign-in__logo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sign-up__login-button-text,
+    .sign-in-form__submit-button {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .sign-up__login-button-text,
+    .sign-in-form__submit-button {
+        font-size: 0.9rem;
+    }
+
+}
+
+.sign-in__logo img {
+    min-width: 100px;
+}
+
+.sign-up__login-button-text,
+.sign-in-form__submit-button {
+    background-color: var(--button-dark-color);
+    color: var(--bright-text-color);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.sign-up__login-button-text:hover,
+.sign-in-form__submit-button:hover {
+    background-color: var(--button-dark-color-hover);
+}
+
+
+.sign-in-form__back-button1,
+.sign-in-form__back-button2,
+.sign-in-form__back-button3,
+.sign-in-form__back-button4 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+    border: 2px solid var(--button-decoration-color);
+    background-color: transparent;
+    transition: all 0.3s;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    transition: all 0.3s;
+}
+
+.sign-in-form__back-button1 svg,
+.sign-in-form__back-button2 svg,
+.sign-in-form__back-button3 svg,
+.sign-in-form__back-button4 svg {
+    display: block;
+    margin: auto;
+
+}
+
+.sign-in-form__back-button1:hover,
+.sign-in-form__back-button2:hover,
+.sign-in-form__back-button3:hover,
+.sign-in-form__back-button4:hover {
+    background-color: var(--accordion-dark-background-color);
+}
+
+@media (min-width: 768px) {
+
+    .sign-in-form__back-button1 svg,
+    .sign-in-form__back-button2 svg,
+    .sign-in-form__back-button3 svg,
+    .sign-in-form__back-button4 svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sign-in-form__back-button1,
+    .sign-in-form__back-button2,
+    .sign-in-form__back-button3,
+    .sign-in-form__back-button4 {
+        width: 60px;
+        height: 60px;
+        transition: all 0.3s;
+    }
+}
+
+.sign-in-form__submit-button,
+.sign-in-form__submit-button-forgot-password {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+.sign-in__content-forgot-password {
+    display: none;
+}
+
+.sign-in__content-forgot-password.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-in__content-forgot-password {
+    display: none;
+}
+
+.sign-in__content-restore-password-code-sent {
+    display: none;
+}
+
+.sign-in__content-restore-password-code-sent.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-in-form__title-code {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.sign-up-form__code-input {
+    display: block;
+    margin: auto;
+    border: 2px solid var(--button-decoration-color);
+    padding: 10px;
+    width: 50%;
+    font-size: 1.5rem;
+    color: var(--black-text-color)
+}
+
+.sign-up-form__code-input:focus {
+    border-color: var(--accordion-dark-background-color);
+    outline: none;
+    background-color: #f0f8ff;
+}
+
+.sign-in__content-new-password {
+    display: none;
+}
+
+.sign-in__content-new-password.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-in__content-change-success {
+    display: none;
+}
+
+.sign-in__content-change-success.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-in-form__submit-button-forgot-password,
+.sign-in-form__submit-button-code-sent,
+.sign-in-form__submit-button-change-password,
+.sign-in-form__submit-button-to-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--button-dark-color);
+    color: var(--bright-text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sign-in-form__submit-button-forgot-password:hover,
+.sign-in-form__submit-button-code-sent:hover,
+.sign-in-form__submit-button-change-password:hover,
+.sign-in-form__submit-button-to-main:hover {
+    background-color: var(--button-dark-color-hover);
+}
+
+.sign-in-form__password-container-with-toggle {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+.sign-in-form__new-password-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sign-in-form__toggle-password-button {
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid var(--form-decoration-color);
+}
+
+.sign-in-form__toggle-password-button:hover {
+    border: 2px solid var(--button-dark-color-hover);
+}
+
+.sumbit-step-problem{
+    text-align: center;
+    color: var(--login-form-message-error);
+    font-weight: 500;
+}

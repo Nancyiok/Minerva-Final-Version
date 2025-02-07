@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --button-dark-color: #1F545B;
+  --dark-text-color: #1F545B;
+  --black-text-color: #000000;
+  --decoration-line-color-black: #000000;
+  --decoration-line-color-green-light: #4AA4B0;
+  --decoration-line-color: #1F545B;
+  --button-dark-color-hover: #163c41;
+  --text-dark-color-green: #163c41;
+  --dropdown-menu-background-color: #ffffff;
+  --bright-text-color: #ffffff;
+  --bright-decoration-color: #ffffff;
+  --bright-button-color: #ffffff;
+  --bright-background-color: #ffffff;
+  --background-drop-header-menu: #83CFDA;
+  --hero-section-background: #E3F9F7;
+  --bright-button-color: #ffffff;
+  --bright-button-hover-color: #ffffff8a;
+  --background-color-for-text-about-us-section: #CDEEEB;
+  --background-color-for-image-about-us-section: #ffff;
+  --background-color-for-proposals-section-line-decoration: #C9DCDA;
+  --accordion-light-background-color: #F0FFFE;
+  --accordion-darker-background-color: #CDEEEB;
+  --accordion-hover-background-color: #b3dad7;
+  --accordion-dark-background-color: #aadcd7;
+  --team-section-background-color: #F0FFFE;
+  --team-section-form-update-message-success: #80e080;
+  --team-section-form-update-message-warning: #ffa06c;
+  --team-section-form-update-message-error: #ff6c6c;
+  --login-form-message-error: #ff6c6c;
+  --footer-background-color: #D0EDEB;
+  --button-decoration-color: #1F545B;
+  --form-decoration-color: #1F545B;
+  --button-decoration-color: #1F545B;
+  --form-registration-message-success: #80e080;
+  --form-registration-message-error: #ff6c6c;
+  --indicator-background-color-done-step: #4AA4B0;
+  --indicator-background-color-current-step: #1F545B;
+  --news-card-section-color: #F0FFFE;
+  --news-card-descriptionbackground-color: #4AA4B0;
+  --button-color-green-ligth: #4AA4B0;
+  --background-welcome-modal: #1F545B;
+  --input-search-job-color: #CDEEEB;
+  --input-search-job-button-icon: #1F545B;
+  --input-search-job-button: #75B0B8;
+  --card-serch-job-background: #4AA4B0;
+  --card-serch-job-background-accent: #ffff;
+  --job-search-section-background: #F0FFFE;
+  --profile-settings-section-background: #F0FFFE;
+  --profile-settings-section-background-mobile: #DFF4F2;
+  --modal-warning-background: #ff6c6c;
+  --arrow-color-background: rgba(172, 234, 235, 0.8);
+  --article-background-color: #45929C;
+  --header-article-background-color: #5CC7D5;
+  --header-article-concept-color: #5CC7D5;
+  --subtext-article-background-color: #DEFAFD;
+  --main-text-article-background-color: #45929C;
+  --footer-article-background-color: #C0F8FF;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h1 span {
+  font-family: Marcellus SC, serif;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+
+button {
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  font-family: Montserrat,
+    sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  min-width: 320px;
+}
+
+input {
+  font-family: Montserrat,
+    sans-serif;
+}

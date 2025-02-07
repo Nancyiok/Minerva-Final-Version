@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/article.css">
+</head>
+
+<body>
+    <header data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../global-elements/global.header-user.partial.html">
+    </header>
+    <section class="article-section">
+        <div id="root"></div>
+    </section>
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.arrow.partial.html">
+    </aside>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script type="module" src="/dist/articlesPage.js"></script>
+</body>
+
+</html>

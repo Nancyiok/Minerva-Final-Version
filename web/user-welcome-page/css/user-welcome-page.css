@@ -1,0 +1,13 @@
+@import "/web/css/global.css";
+@import "/web/css/global-header.css";
+@import "/web/user-welcome-page/css/news-welcome-page.css";
+@import "/web/css/footer.css";
+@import "/web/user-welcome-page/css/search-job.css";
+@import "/web/css/loading-window.css";
+.header-navigation__menu-container {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minerva</title>
+    <link rel="stylesheet" href="./web/css/index.css">
+    </link>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    </link>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <header data-hx-trigger="load" data-hx-swap="outerHTML"
+            data-hx-get="./web/global-elements/global.header.partial.html"></header>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML"
+            data-hx-get="./web/index-page/index.hero-section.partial.html"></section>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML"
+            data-hx-get="./web/index-page/index.about-us-section.partial.html"></section>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML"
+            data-hx-get="./web/index-page/index.proposals.partial.html"></section>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML"
+            data-hx-get="./web/index-page/index.university-support.partial.html"></section>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./web/index-page/index.faq.partial.html">
+        </section>
+        <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./web/index-page/index.team.partial.html">
+        </section>
+    </main>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="/web/global-elements/global.footer.partial.html">
+    </footer>
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./web/global-elements/global.arrow.partial.html">
+    </aside>
+    <script async src="/web/js/index/index.js"></script>
+</body>
+
+</html>
