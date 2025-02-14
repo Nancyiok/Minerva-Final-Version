@@ -28,7 +28,6 @@
 }
 
 .article__avatar {
-    width: 130px;
     height: 90px;
     object-fit: cover;
     border-radius: 100%;
