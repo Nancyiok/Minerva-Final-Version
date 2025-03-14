@@ -139,14 +139,16 @@
 }
 
 .faq__another-questions-button {
+    display: inline-block;
     background-color: var(--button-dark-color);
     color: var(--bright-text-color);
     padding: 10px 20px;
     font-size: 18px;
     font-weight: 500;
-    margin: 20px 10px;
+    margin: 40px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .faq__another-questions-button:hover {

@@ -88,6 +88,7 @@
         background: url("/web/sign-up-page/img/signup-computer-background.svg") no-repeat center center/cover;
     }
 }
+
 @media (min-width: 1200px) {
     .sign-in {
         background: url("/web/sign-up-page/img/modal-window-background.svg") no-repeat center right/cover;
@@ -405,8 +406,25 @@
     border: 2px solid var(--button-dark-color-hover);
 }
 
-.sumbit-step-problem{
+.sumbit-step-problem {
     text-align: center;
     color: var(--login-form-message-error);
     font-weight: 500;
 }
+
+.incorrect {
+    background: var(--incorrect-background);
+    border: 1px solid var(--incorrect-border);
+}
+
+.correct {
+    background: var(--background-color-succes);
+    border: 1px solid var(--border-success);
+}
+
+.sign-in-form__message-container-forgot-password {
+    text-align: center;
+    display: block;
+}
+
+

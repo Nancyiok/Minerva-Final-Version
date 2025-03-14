@@ -7,7 +7,6 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    margin: 20px;
 }
 
 .account-settings__personal-data {
@@ -336,7 +335,7 @@ input[type="file"] {
     object-fit: cover;
     object-position: center;
     border-radius: 100%;
-    border: 4px solid var(--decoration-line-color-green-light);
+    /* border: 4px solid var(--decoration-line-color-green-light); */
 }
 
 .modal-content {
@@ -455,4 +454,13 @@ hr {
 .account-data__input:disabled,
 .personal-data__input:disabled {
     background-color: var(--bright-background-color);
+}
+
+
+.header-navigation__decoration-line{
+    margin: 0;
+}
+
+hr{
+    margin: 0;
 }

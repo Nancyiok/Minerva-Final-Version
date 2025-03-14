@@ -70,7 +70,11 @@ buttonForgotPassword.addEventListener("click", async (event) => {
     event.preventDefault();
     if (resetPasswordEmail.value === "") {
         resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Поле не може бути пустим!</p>`;
-        setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
+        resetPasswordEmail.classList.add("incorrect");
+        setTimeout(() => {
+            resetPasswordEmailMessage.innerText = "";
+            resetPasswordEmail.classList.remove("incorrect");
+        }, 1500);
         return;
     }
     else {
@@ -101,17 +105,26 @@ buttonForgotPassword.addEventListener("click", async (event) => {
                         }
                         else {
                             formMessageCode.innerHTML = `<p class="sumbit-step-problem">Неправильний код!</p>`;
-                            setTimeout(() => { formMessageCode.innerText = "" }, 1500);
+                            codeInput.classList.add("incorrect");
+                            setTimeout(() => {
+                                formMessageCode.innerText = ""
+                                codeInput.classList.remove("incorrect");
+                            }, 1700);
                         }
                     });
                 }
             }
+                
             else {
                 const error = await checkEmail.json();
                 const errorMessage = error;
                 if (errorMessage == "ID is not valid") {
                     formMessageCode.innerHTML = `<p class="sumbit-step-problem">Такого користувача не існує!</p>`;
-                    setTimeout(() => { formMessageCode.innerText = "" }, 1500);
+                    resetPasswordEmail.classList.add("incorrect");
+                    setTimeout(() => {
+                        formMessageCode.innerText = "";
+                        resetPasswordEmail.classList.remove("incorrect");
+                     }, 1500);
                 }
                 else if (errorMessage == "Code not sent") {
                     formMessageCode.innerHTML = `<p class="sumbit-step-problem">Проблеми з відправкою повідомлення!</p>`;
@@ -123,26 +136,48 @@ buttonForgotPassword.addEventListener("click", async (event) => {
             }
         } catch (error) {
             console.log(error);
-            resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;
-            setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
+            formMessageCode.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;
+            setTimeout(() => { formMessageCode.innerText = "" }, 1500);
         }
     }
 });
 
 changePasswordButton.addEventListener("click", async (event) => {
     event.preventDefault();
-    if (newPassword.value !== submitPassword.value) {
-        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Паролі не співпадають!</p>`;
+    if (!isValidPassword(newPassword.value)) {
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Пароль повинен містити великі літери, цифри та символи!</p>`;
+        submitPassword.classList.add("incorrect");
+        newPassword.classList.add("incorrect");
+        setTimeout(() => {
+            changePasswordMessage.innerText = "";
+            submitPassword.classList.remove("incorrect");
+            newPassword.classList.remove("incorrect");
+        }, 1500);
         return;
     }
-    else if (!newPassword.value || !submitPassword.value) {
 
-        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Поля не можуть бути пустими!</p>`;
-        return;
+    else if (newPassword.value !== submitPassword.value) {
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Паролі не співпадають!</p>`;
+        submitPassword.classList.add("incorrect");
+        newPassword.classList.add("incorrect");
+        setTimeout(() => {
+            formMessageCode.innerText = "";
+            submitPassword.classList.remove("incorrect");
+            newPassword.classList.remove("incorrect");
+        }, 1500);
+
     }
-    else if (!isValidPassword(newPassword.value)) {
-        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Пароль повинен містити великі літери, цифри та символи!</p>`;;
-        return;
+        
+    else if (!newPassword.value || !submitPassword.value) {
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem-fields">Поля не можуть бути пустими!</p>`;
+        submitPassword.classList.add("incorrect");
+        newPassword.classList.add("incorrect");
+        setTimeout(() => {
+            changePasswordMessage.innerText = "";
+            submitPassword.classList.remove("incorrect");
+            newPassword.classList.remove("incorrect");
+        }, 1500);
+        return; 
     }
     try {
         const checkEmail = await fetch(`${serverURL}/api/EditProfile/DropPassword`, {

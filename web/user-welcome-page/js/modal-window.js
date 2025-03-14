@@ -1,6 +1,6 @@
 const modal = document.querySelector('.welcome-window');
 // window.addEventListener("load", () => {
-//     const modal = document.querySelector('.welcome-window');
+
 //     if (!modal) {
 //         console.error('Элемент .welcome-window не найден!');
 //         return;
@@ -14,18 +14,25 @@ const modal = document.querySelector('.welcome-window');
 //         document.querySelector(".welcome-window__title").innerText = loginValue;
 //     } else {
 //         console.log('Пользователь не авторизован');
-//         document.querySelector(".welcome-window__title").innerText = "Привіт!";
+
+if (sessionStorage.getItem("login")) {
+    document.querySelector(".welcome-window__title").innerText = `Привіт${sessionStorage.getItem("login") === 'undefinded' ?`, ${sessionStorage.getItem("login")}` : "" }`;
+}
+else {
+    document.querySelector(".welcome-window__title").innerText = `Привіт`;
+}
+
+setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+}, 2000);
+
 //         localStorage.removeItem('login');
 //     }
 //     console.log('Модальное окно найдено');
 //     document.querySelector(".welcome-window__title").innerText = "Привіт!";
 //     localStorage.removeItem('login');
-    setTimeout(() => {
-        console.log('Скрываем окно...');
-        modal.classList.add('hidden');
-        console.log('Класс hidden добавлен:', modal.classList.contains('hidden'));
-        modal.style.display = 'none';
-    }, 1000);
+  
 // });
 
 // window.addEventListener("load", () => {

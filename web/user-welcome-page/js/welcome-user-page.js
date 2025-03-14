@@ -1,6 +1,7 @@
 function init() {
     import("./modal-window.js");
     import("../../js/global/header.js");
+    import("./job-articles.js")
 }
 const totalPartials = document.querySelectorAll(
     '[hx-trigger="load"], [data-hx-trigger="load"]'

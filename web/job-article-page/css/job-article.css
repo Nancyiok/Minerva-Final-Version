@@ -1,0 +1,238 @@
+@import "../../css/global.css";
+@import "../../css/global-header.css";
+@import "../../css/footer.css";
+
+.job-article-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--background-color-dark-green);
+}
+
+.job-article-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+    margin: 100px auto;
+}
+
+.job-posting {
+    background-color: var(--job-article-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    gap: 30px;
+    padding: 30px;
+    border: 2px solid var(--decoration-line-color-black);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.job-posting__header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+.job-posting__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 500px) {
+    .job-posting__header {
+        font-size: 1rem;
+    }
+
+    .job-posting__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (min-width: 800px) {
+    .job-posting__header {
+        font-size: 1.1rem;
+    }
+
+    .job-posting__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        font-size: 1.2rem;
+    }
+
+    .job-posting__title {
+        font-size: 1.5rem;
+    }
+
+}
+
+.job-posting__requirements-responsibilities {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-article-header {
+    background-color: var(--job-article-header-background-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    border-radius: 35px;
+    border: 2px solid var(--decoration-line-color-black);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+
+}
+
+.job-article-header__arows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cross,
+.load-arrows,
+.job-article-header__domen-name {
+    display: none;
+}
+
+
+@media (max-width: 700px) {
+
+    .job-article-header__arows {
+        margin: auto;
+    }
+
+}
+
+
+@media (min-width: 700px) {
+
+    .cross,
+    .load-arrows,
+    .job-article-header__domen-name {
+        display: block;
+    }
+
+
+
+    .cross,
+    .load-arrows,
+    .job-article-header__domen-name {
+        display: block;
+    }
+
+}
+
+.job-article-header__domen-name {
+    width: 60%;
+}
+
+.job-article-header__domen-name p {
+    font-size: 1.2rem;
+    background-color: var(--bright-background-color);
+    padding: 20px 30px;
+    border-radius: 70px;
+    text-align: center;
+    border: 2px solid var(--decoration-line-color-black);
+}
+
+
+.job-posting__button {
+    background-color: var(--job-article-header-background-color);
+    color: var(--bright-background-color);
+    border-radius: 10px;
+    border: 2px solid var(--decoration-line-color-black);
+    padding: 20px 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.job-posting__button:hover {
+    background-color: var(--button-dark-color-hover);
+}
+
+.job-posting__logo-container {
+    border: 3px solid var(--decoration-line-color-green-light);
+}
+.job-posting__logo-container img {
+   max-width: 200px;
+}
+
+.job-posting__title {
+    font-weight: 600;
+    color: var(--black-text-color);
+}
+
+.job-posting__info,
+.job-posting__details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.job-posting__subtitle,
+.job-posting__responsibilities h3,
+.title-higlight {
+    color: var(--dark-text-color);
+    font-weight: 600;
+}
+
+
+@media (min-width: 600px) {
+
+    .job-posting__button {
+        padding: 20px 60px;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+}
+
+@media (min-width: 800px) {
+
+    .job-posting__button {
+        padding: 20px 60px;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+}
+
+.cross,
+.load-arrows,
+.job-article-header__domen-name {
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.back-arrow,
+.next-arrow {
+    cursor: pointer;
+}

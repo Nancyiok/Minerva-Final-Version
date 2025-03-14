@@ -1,4 +1,5 @@
 function init() {
+    import("../../js/global/header.js");
     import("./get-info-about-user.js");
     import("./form-settings.js");
 }

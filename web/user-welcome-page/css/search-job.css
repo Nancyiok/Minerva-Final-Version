@@ -193,12 +193,15 @@
 }
 
 .card__button {
+    display: inline;
     border: 1px solid var(--bright-text-color);
     background-color: transparent;
     border-radius: 10px;
     color: var(--bright-text-color);
     font-weight: 600;
     transition: all 0.3s;
+    text-decoration: none;
+    padding: 15px 30px;
 }
 
 .card__button:hover {

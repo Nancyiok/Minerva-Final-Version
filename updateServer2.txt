@@ -1,0 +1,48 @@
+Все старые гетзапросы остались, изменены данные которые отправляются на сервер
+
+Данные статей:
+
+Полные данные:
+
+article_file - блок кода
+article_photo - фото обложки (в виде Url, в начале надо добавить ссылку на сервер)
+article_title - заголовок
+article_author_id - автор статьи
+article_first_paragraph - первый параграф (пока что текстом)
+article_theme - тема статьи
+article_rubric - рубрика статьи
+article_publishDate - дата публикации
+article_views - количество просмотров (увеличивается при вызове запроса на статью)
+
+Данные для ленты:
+(смысл аналогичный)
+id
+title 
+photo
+first_paragraph
+views
+publish_date 
+Article_theme
+Rubric
+
+
+Данные для вакансий:
+
+Полные данные: 
+
+vacancy_file - блок кода с вакансией
+vacancy_photo - фото обложки (в виде Url, в начале надо добавить ссылку на сервер)
+vacancy_title - заголовок
+vacancy_hire_manager_id - айди владельца
+vacancy_job - работа из вакансии
+vacancy_publishDate - дата публикации
+vacancy_views - просмотры
+
+Данные для ленты:
+
+id
+title
+photo
+views
+publish_date
+job

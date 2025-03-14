@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зв'язатися з нами</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../../web-icon.png" type="image/x-icon">
+    </link>
+    <link rel="stylesheet" href="./css/complaint_page.css">
+</head>
+
+<body id="complaint-page">
+    <header data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../global-elements/global.header-user.partial.html">
+    </header>
+    <section class="complaint-section">
+        <div class="complaint-container">
+
+            <div class="complaint-form_1">
+
+                <div class="right-half">
+                    <div class="image-container">
+                        <img src="./img/herbs (2).svg" alt="Картинка 1" class="top-left">
+                        <img src="./img/herbs.svg" alt="Картинка 2" class="top-right">
+                        <img src="./img/herbs (1).svg" alt="Картинка 3" class="bottom-left">
+                        <div class="center-text">Маєте питання або якусь проблему?</div>
+                    </div>
+                </div>
+
+                <div class="left-half">
+
+                    <header class="help__header">
+                        <div class="help__decor help__decor--left">
+                            <img src="./img/index.leaves-left.svg" alt="Листя до вінку прикраса зліва">
+                        </div>
+                        <h2 class="help__title">Ми тут щоб вам допомогти</h2>
+
+                        <div class="help__decor help__decor--right">
+                            <img src="./img/index.leaves-right.svg" alt="Листя до вінку прикраса справа">
+                        </div>
+                    </header>
+                    <br>
+                    <form action="/submit_complaint" method="post" class="complaint-form">
+
+                        <input type="text" id="title" name="title" placeholder="Напишіть тему звернення"
+                            class="input-field">
+                        <p></p>
+                        <textarea type="text" id="complaint" name="complaint" rows="4" placeholder="Ваше звернення..."
+                            class="textarea-field"></textarea>
+                        <div class="submit-container">
+                            <input type="submit" value="Відправити" class="submit-button">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.arrow.partial.html">
+    </aside>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+</body>
+
+</html>

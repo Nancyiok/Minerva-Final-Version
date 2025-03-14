@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Стаття</title>
+    <link rel="shortcut icon" href="../../web-icon.png" type="image/x-icon">
+    </link>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <script src="https://unpkg.com/htmx.org@1.9.10"
         integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
         crossorigin="anonymous"></script>
@@ -20,9 +23,19 @@
     </section>
     <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.arrow.partial.html">
     </aside>
+     <div class="commentbox"></div> 
+    <!-- <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script> 
+    <script>
+      commentBox('5651232563658752-proj', {
+            backgroundColor: '#DEFAFD',
+            textColor: '#000000',
+            subtextColor: '#000000'
+        });
+    </script> -->
     <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
     </footer>
     <script type="module" src="/dist/articlesPage.js"></script>
+
 </body>
 
 </html>

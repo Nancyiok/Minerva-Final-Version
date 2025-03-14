@@ -264,3 +264,11 @@ body.active {
 }
 
 
+.user-account-button__img{
+    border-radius: 100%;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}

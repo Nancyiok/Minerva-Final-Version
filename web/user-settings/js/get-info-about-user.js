@@ -10,38 +10,41 @@ const fileInputPhoto = document.getElementById("file-upload-photo");
 const inputPhotoUserLook = document.querySelector(".actions__upload-photo-icon");
 const fileInputCV = document.getElementById("file-upload-cv");
 const saveChangesButton = document.querySelector(".actions__save");
-const storedUser = localStorage.getItem("user");
-const user = JSON.parse(storedUser);
-console.log(storedUser);
-nameInput.value = user.name;
-surnameInput.value = user.surname;
+const storedUserId = JSON.parse(sessionStorage.getItem("id"));
+const response = await fetch(`${serverURL}/api/users/${storedUserId}/FullInfo`, {
+    method: 'GET',
+    headers: {
+        "ngrok-skip-browser-warning": "true"
+    }
+});
 
-if (user.fathername) {
-    fathernameInput.value = user.fathername;
-    fathernameInput.disabled = true;
-}
+if (response.ok) {
+    const data = await response.json();
+    console.log(data)
+    nameInput.value = data.name;
+    surnameInput.value = data.surname;
+    if (data.fathername) {
+        fathernameInput.value = data.fathername;
+        fathernameInput.disabled = true;
+    }
+    
+    loginInput.value = data.username;
+    emailInput.value = data.email;
+    phoneInput.value = data.phone ? data.phone : "";
+    inputPhotoUserLook.src = data.photo
+        ? `data:image/jpeg;base64,${data.photo}`
+        : "./img/user-photo.svg";
+    universityInput.value = data.university ? data.university : "";
+    fileInputCV.value = data.resume ? `data:image/jpeg;base64,${data.resume}` : "";
 
-loginInput.value = user.username;
-emailInput.value = user.email;
-phoneInput.value = user.phone ? user.phone : "";
-inputPhotoUserLook.src = user.photo
-    ? `data:image/jpeg;base64,${user.photo}`
-    : "./img/user-photo.svg";
-console.log("user.photo:", user.photo);
-
-
-if (user.phone) {
-    phoneInput.value = user.phone;
-}
-
-if (user.university) {
-    universityInput.value = user.university;
+} else {
+    const error = await response.text();
+    alert(`Помилка: ${error}`);
 }
 
 saveChangesButton.addEventListener("click", async () => {
-    console.log("Кнопка нажата!");
     const formData = new FormData();
-    formData.append("ID", user.id);
+    formData.append("ID", storedUserId);
     // formData.append("Username");
     formData.append("Phone", phoneInput && phoneInput.value ? phoneInput.value : "");
     // formData.append("Name");

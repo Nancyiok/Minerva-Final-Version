@@ -14,8 +14,12 @@
   --black-text-color: #000000;
   --decoration-line-color-black: #000000;
   --decoration-line-color-green-light: #4AA4B0;
+  --background-color-green-light: #4AA4B0;
+  --background-color-green-bright: #F0FFFE;
   --decoration-line-color: #1F545B;
+  --background-color-dark-green: #1F545B;
   --button-dark-color-hover: #163c41;
+  --background-color-dark: #163c41;
   --text-dark-color-green: #163c41;
   --dropdown-menu-background-color: #ffffff;
   --bright-text-color: #ffffff;
@@ -34,9 +38,13 @@
   --accordion-hover-background-color: #b3dad7;
   --accordion-dark-background-color: #aadcd7;
   --team-section-background-color: #F0FFFE;
-  --team-section-form-update-message-success: #80e080;
+  --team-section-form-update-message-success: #43b143;
+  --border-success: #80e080;
+  --background-color-succes: #c3f4c3;
   --team-section-form-update-message-warning: #ffa06c;
   --team-section-form-update-message-error: #ff6c6c;
+  --incorrect-background:#fad9d9;
+  --incorrect-border: #ff6c6c;
   --login-form-message-error: #ff6c6c;
   --footer-background-color: #D0EDEB;
   --button-decoration-color: #1F545B;
@@ -66,6 +74,9 @@
   --subtext-article-background-color: #DEFAFD;
   --main-text-article-background-color: #45929C;
   --footer-article-background-color: #C0F8FF;
+  --job-article-background-color: #F0FFFE;
+  --job-article-header-background-color: #1691A1;
+  --border-faq-section: #DFF4F2;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;

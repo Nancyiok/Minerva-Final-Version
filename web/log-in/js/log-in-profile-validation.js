@@ -5,12 +5,19 @@ const logInButton = document.querySelector(".sign-in-form__submit-button");
 const messageForUser = document.querySelector(".sign-in-form__message");
 const resetPasswordEmail = document.querySelector(".sign-in-form__input--reset-password-email");
 const resetPasswordButton = document.querySelector(".sign-in-form__submit-button-forgot-password");
+
+
 logInButton.addEventListener("click", async (event) => {
     event.preventDefault();
-    // window.location.href = ".././user-welcome-page/user-welcome.html";
     if (logInEmailMain.value === "" || logInPasswordMain.value === "") {
         messageForUser.innerHTML = `<p class="sumbit-step-problem">Поля не можуть бути пустими!</p>`;
-        setTimeout(() => { messageForUser.innerText = "" }, 1500);
+        logInEmailMain.classList.add("incorrect");
+        logInPasswordMain.classList.add("incorrect");
+        setTimeout(() => {
+            messageForUser.innerText = ""
+            logInEmailMain.classList.remove("incorrect");
+            logInPasswordMain.classList.remove("incorrect");
+        }, 1500);
     }
     else {
         try {
@@ -22,26 +29,33 @@ logInButton.addEventListener("click", async (event) => {
                 body: JSON.stringify({ Email: logInEmailMain.value, Password: logInPasswordMain.value })
             });
             if (checkLoginData.ok) {
-                const data = await  checkLoginData.json();
+                const data = await checkLoginData.json();
                 console.log(data);
                 event.preventDefault();
-                // console.log("")
-                const storedUser = localStorage.setItem("user", JSON.stringify(data));
-                // console.log(storedUser.photo);
-                messageForUser.innerHTML = "OK!";
+                sessionStorage.setItem("login", JSON.stringify(data.username));
+                sessionStorage.setItem("id", JSON.stringify(data.id));
                 window.location.href = ".././user-welcome-page/user-welcome.html";
             }
             else {
                 const error = await checkLoginData.text();
                 if (error === "User not found") {
                     messageForUser.innerHTML = `<p class="sumbit-step-problem">Такого користувача не існує!</p>`;
-                    setTimeout(() => { messageForUser.innerText = "" }, 1500);
+                    logInEmailMain.classList.add("incorrect");
+                    setTimeout(() => {
+                        messageForUser.innerText = ""
+                        logInEmailMain.classList.remove("incorrect");
+                    }, 1700);
                     return;
                 }
 
-                else if (error = "The password is incorrect") {
+                else if (error === "The password is incorrect") {
                     messageForUser.innerHTML = `<p class="sumbit-step-problem">Неправильний пароль</p>`;
                     setTimeout(() => { messageForUser.innerText = "" }, 1500);
+                    logInPasswordMain.classList.add("incorrect");
+                    setTimeout(() => {
+                        messageForUser.innerText = ""
+                        logInPasswordMain.classList.remove("incorrect");
+                    }, 1500);
                     return;
                 }
 

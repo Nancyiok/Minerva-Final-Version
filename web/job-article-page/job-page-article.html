@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вакансія</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/job-article.css">
+</head>
+
+<body id="job-article-page">
+    <header data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../global-elements/global.header-user.partial.html">
+    </header>
+    <section class="job-article-section">
+        <div class="job-article-container">
+            <header class="job-article-header">
+                <div class="job-article-header__arows">
+                    <img src="./img/arrow-back-header.svg" alt="Стрілка вперед" class="back-arrow">
+                    <img src="./img/arrow-next-header.svg" alt="Стрілка назад" class="next-arrow">
+                    <img src="./img/load-arrows.svg" alt="Перезавантаження" class="load-arrows">
+                </div>
+                <div class="job-article-header__domen-name">
+                    <p>Minerva.com</p>
+                </div>
+
+                <div class="job-article-header__cross">
+                    <img src="./img/cross.svg" alt="Закрити" class="cross">
+                </div>
+            </header>
+            <div id="root"></div>
+        </div>
+    </section>
+
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.arrow.partial.html">
+    </aside>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script type="module" src="/dist/jobArticlePage.js"></script>
+</body>
+
+</html>

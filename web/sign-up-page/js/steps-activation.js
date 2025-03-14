@@ -14,30 +14,50 @@ const formMessage = document.querySelector(".sign-up-form__message");
 const formInputVerificationCode = document.querySelector(".sign-up-form__code-input");
 const submitPassword = document.querySelector(".sign-up-form__input--submit-password");
 const spinnerLoading = document.querySelector(".window-loading__spinner");
+const signUpForm = document.querySelector(".sign-up-form");
 indicator1.classList.add("current");
+
 function checkStep1() {
     const name = document.querySelector(".sign-up-form__input--name").value;
     const surname = document.querySelector(".sign-up-form__input--surname").value;
     const phoneNumber = document.querySelector(".sign-up-form__input--phone").value;
     if (!name || !isValidUkrainianName(name)) {
         formMessage.innerText = "Введіть коректне ім'я";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const nameInput = signUpForm.querySelector(".sign-up-form__input--name");
+        nameInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = "";
+            nameInput.classList.remove("incorrect");
+        },
+            2000);
         return false;
     }
 
     if (!surname || !isValidUkrainianSurname(surname)) {
         formMessage.innerText = "Введіть коректне прізвище";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const surnameInput = signUpForm.querySelector(".sign-up-form__input--surname");
+        surnameInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            surname.classList.remove("incorrect");
+        }, 2000);
         return false;
     }
 
     if (!phoneNumber || !isValidUkrainianPhoneNumber(phoneNumber)) {
         formMessage.innerText = "Введіть коректний номер телефону";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const phoneInput = signUpForm.querySelector(".sign-up-form__input--phone");
+        phoneInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            phoneInput.classList.remove("incorrect");
+        }, 1500);
         return false;
     }
     return true;
 }
+
+//.sign-up-form__input
 
 function checkStep2() {
     const email = document.querySelector(".sign-up-form__input--email").value;
@@ -46,25 +66,45 @@ function checkStep2() {
 
     if (!email || !isValidEmail(email)) {
         formMessage.innerText = "Введіть коректну електронну адресу";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const emailInput = signUpForm.querySelector(".sign-up-form__input--email");
+        emailInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            emailInput.classList.remove("incorrect");
+        }, 1800);
         return false;
     }
 
     if (!login || !isValidLogin(login)) {
         formMessage.innerText = "Введіть коректний логін";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const loginInput = signUpForm.querySelector(".sign-up-form__input--login");
+        loginInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            loginInput.classList.remove("incorrect");
+        }, 1700);
         return false;
     }
 
     if (!password || !isValidPassword(password)) {
         formMessage.innerText = "Пароль повинен містити не менше 8 символів, одну велику літеру, одну малу літеру, одну цифру та один спеціальний символ (наприклад, !, @, #).";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const passwordInput = signUpForm.querySelector(".sign-up-form__input--password");
+        passwordInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            passwordInput.classList.remove("incorrect");
+        }, 5000);
         return false;
     }
 
     if (password !== submitPassword.value) {
         formMessage.innerText = "Паролі не співпадають";
-        setTimeout(() => { formMessage.innerText = "" }, 1500);
+        const passwordSubmitInput = signUpForm.querySelector(".sign-up-form__input--submit-password");
+        passwordSubmitInput.classList.add("incorrect");
+        setTimeout(() => {
+            formMessage.innerText = ""
+            passwordSubmitInput.classList.remove("incorrect");
+        }, 1800);;
         return false;
     }
 
@@ -97,8 +137,12 @@ function isValidEmail(email) {
 
 function isValidLogin(login) {
     const loginRegex = /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ0-9._]{3,20}$/;
-    return loginRegex.test(login.trim()) && !/[_\.]$/.test(login.trim());
+    return loginRegex.test(login.trim()) &&
+        !/[_\.]$/.test(login.trim()) &&
+        /\d/.test(login) &&
+        /[a-zA-Zа-яА-ЯїЇєЄіІґҐ]/.test(login);
 }
+
 
 function isValidPassword(password) {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
@@ -129,11 +173,11 @@ nextButton.addEventListener("click", async (event) => {
             const email = document.querySelector(".sign-up-form__input--email").value.trim();
             const login = document.querySelector(".sign-up-form__input--login").value.trim();
             const password = document.querySelector(".sign-up-form__input--password").value.trim();
-            // https://31a2-212-115-232-243.ngrok-free.app
+            const emailInput = signUpForm.querySelector(".sign-up-form__input--email");
+            const loginInput = signUpForm.querySelector(".sign-up-form__input--login");
             step2.classList.remove("active");
             spinnerLoading.classList.add("active");
             try {
-                console.log(this);
                 const verificationCode = await fetch(`${serverURL}/api/regist/CheckData`, {
                     method: "POST",
                     headers: {
@@ -148,22 +192,45 @@ nextButton.addEventListener("click", async (event) => {
                     const errorMessage = await verificationCode.text();
                     if (errorMessage == "Username and Email are already taken") {
                         formMessage.innerText = "Такий логін та пошта вже існують";
-                        setTimeout(() => { formMessage.innerText = "" }, 1500);
+                        loginInput.classList.add("incorrect");
+                        emailInput.classList.add("incorrect");
+                        setTimeout(() => {
+                            formMessage.innerText = "";
+                            loginInput.classList.remove("incorrect");
+                            emailInput.classList.remove("incorrect");
+                        }, 2000);
+
                     } else if (errorMessage == "Email is already taken") {
                         formMessage.innerText = "Така пошта вже використовується";
-                        setTimeout(() => { formMessage.innerText = "" }, 1500);
+                        emailInput.classList.add("incorrect");
+                        setTimeout(() => {
+                            formMessage.innerText = ""
+                            emailInput.classList.remove("incorrect");
+                        }, 2000);
+
                     } else if (errorMessage == "Username is already taken") {
                         formMessage.innerText = "Такий логін вже використовується";
-                        setTimeout(() => { formMessage.innerText = "" }, 1500);
+                        loginInput.classList.add("incorrect");
+                        setTimeout(() => {
+                            formMessage.innerText = ""
+                            loginInput.classList.remove("incorrect");
+                        }, 2000);
+
                     } else if (errorMessage == "Problem with Email") {
                         formMessage.innerText = "Відправити код на пошту не вдається, спробуйте ще раз!";
-                        setTimeout(() => { formMessage.innerText = "" }, 1500);
+                        emailInput.classList.add("incorrect");
+                        setTimeout(() => {
+                            formMessage.innerText = ""
+                            emailInput.classList.remove("incorrect");
+                        }, 2000);
+
                     } else {
                         alert(errorMessage);
                     }
                 } else {
                     const result = await verificationCode.json();
                     const code = result.code;
+                    sessionStorage.setItem("id", result.id);
                     console.log("Code:", code);
                     spinnerLoading.classList.remove("active");
                     indicator2.classList.remove("current");
@@ -186,11 +253,16 @@ nextButton.addEventListener("click", async (event) => {
                         const email = document.querySelector(".sign-up-form__input--email").value.trim();
                         const login = document.querySelector(".sign-up-form__input--login").value.trim();
                         const password = document.querySelector(".sign-up-form__input--password").value.trim();
-                        console.log("Code:", code, "Input Code:" );
+                        console.log("Code:", code, "Input Code:");
 
                         if (code === codeInput) {
+                            const codeInput = signUpForm.querySelector(".sign-up-form__code-input");
+                            codeInput.classList.add("correct");
                             formMessage.innerHTML = '<p class="sign-up-form__message-success">Дякуємо, пошта підтверджена!</p>';
-                            setTimeout(() => { formMessage.innerText = "" }, 1500);
+                            setTimeout(() => {
+                                formMessage.innerText = ""
+                                codeInput.classList.remove("correct");
+                             }, 1500);
 
                             try {
                                 const response = await fetch(`${serverURL}/api/regist/register`, {
@@ -202,18 +274,22 @@ nextButton.addEventListener("click", async (event) => {
                                         Username: login,
                                         Email: email,
                                         Password: password,
-                                        Name: "Sigma",
-                                        Surname: "Software",
+                                        Name: name,
+                                        Surname: surname,
+                                        Phone: phone,
                                         Testmode: true,
                                     }),
                                 });
-                                
+
                                 if (response.ok) {
+                                    const responseData = await response.json();
                                     formMessage.innerHTML = '<p class="sign-up-form__message-success">Реєстрація успішна!</p>';
                                     setTimeout(() => {
-                                        localStorage.setItem("login", login);
-                                        window.location.href = "./web/user-welcome-page/welcome-user-page.html";
-                                    }, 1500);
+                                        sessionStorage.setItem("login", JSON.stringify(responseData.username));
+                                        sessionStorage.setItem("id", JSON.stringify(responseData.id));
+                                        window.location.href = ".././user-welcome-page/user-welcome.html";
+                                    }, 2000);
+
                                 } else {
                                     const error = await response.text();
                                     console.error("Ошибка на сервере:", error);
@@ -227,12 +303,16 @@ nextButton.addEventListener("click", async (event) => {
                             }
                         } else {
                             formMessage.innerText = "Неправильний код!";
-                            setTimeout(() => { formMessage.innerText = "" }, 1500);
+                            const codeInput = signUpForm.querySelector(".sign-up-form__code-input");
+                            codeInput.classList.add("incorrect");
+                            setTimeout(() => {
+                                formMessage.innerText = ""
+                                codeInput.classList.remove("incorrect");
+                            }, 2000);
                         }
                     });
                 }
-             
-                
+
             } catch (error) {
                 step2.classList.add("active");
                 spinnerLoading.classList.remove("active");
@@ -245,10 +325,6 @@ nextButton.addEventListener("click", async (event) => {
         }
     }
 });
-
-
-
-    
 
 backButton.addEventListener("click", (event) => {
     event.preventDefault();

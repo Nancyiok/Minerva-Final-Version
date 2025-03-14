@@ -17,7 +17,7 @@
     position: relative;
     background-color: var(--bright-button-color);
     animation: fadeIn 1s;
-    width: 100%;
+    width: 90%;
 }
 
 @keyframes fadeIn {
@@ -176,9 +176,10 @@
     font-weight: 500;
     transition: all 0.3s;
 }
+
 .sign-up__login-button-text:hover {
     background-color: var(--button-dark-color-hover);
-    
+
 }
 
 .sign-up-form__step-title,
@@ -220,17 +221,18 @@
     width: 100px;
 }
 
+@media (min-width: 1000px) {
+    .sign-up-form {
+        width: 50%;
+    }
 
-
+}
 
 @media (min-width: 768px) {
     .sign-up__login-button-text {
         font-size: 1.2rem;
     }
 
-    .sign-up-form {
-        width: 50%;
-    }
 
     .sign-up__header {
         padding: 30px 40px;
@@ -272,7 +274,8 @@
 
 @media (min-width: 600px) {
     .sign-up-form__title {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
+        padding: 10px;
     }
 
 }
@@ -308,7 +311,6 @@
 }
 
 .sign-up-form__submit-button.active {
-    /* display: block; */
     background-color: var(--button-dark-color);
     color: var(--bright-text-color);
     font-weight: 500;
@@ -366,8 +368,9 @@
 
 .window-loading__spinner {
     display: none;
-  
+
 }
+
 .window-loading__spinner.active {
     border: 8px solid var(--background-drop-header-menu);
     border-top: 8px solid #000000;
@@ -392,3 +395,14 @@
 .window-loading__description {
     font-size: 2rem;
 }
+
+.incorrect{
+    background:  var(--incorrect-background);
+    border: 1px solid var(--incorrect-border);
+}
+
+.correct{
+    background:  var(--background-color-succes);
+    border: 1px solid var(--border-success);
+}
+

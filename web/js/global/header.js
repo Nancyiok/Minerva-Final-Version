@@ -1,3 +1,4 @@
+import serverURL from "../../js/global/server-url.js";
 const headerNavigationMenuItemContainer = document.querySelector(".header-navigation__menu-item-container");
 const headerNavigationMenuItemDropdown = document.querySelector(".header-navigation__menu-item-dropdown");
 const headerNavigationMenuArrow = document.querySelector(".header-navigation__menu-arrow");
@@ -34,10 +35,35 @@ headerNavigationMenuItemContainerComputer.addEventListener("click", () => {
     headerComputerArrow.classList.toggle("active");
 });
 
-const userAccountButton = document.querySelector(".user-account-button");
-const userAccountComputer = document.querySelector(".header-navigation__menu-item-dropdown-user-account-computer");
-userAccountButton.addEventListener("click", () => {
-    userAccountComputer.classList.toggle("active");
-});
 
-// .header - navigation__menu - item - dropdown - user - acount - computer
+ 
+
+if (sessionStorage.getItem("id")) {
+    const userPhoto = document.querySelector(".user-account-button__img");
+    const response = await fetch(`${serverURL}/api/users/${sessionStorage.getItem("id") }/FullInfo`, {
+        method: 'GET',
+        headers: {
+            "ngrok-skip-browser-warning": "true"
+        }
+    });
+    if (response.ok) {
+        const data = await response.json();
+        userPhoto.src = data.photo
+            ? `data:image/jpeg;base64,${data.photo}`
+            : "/web/global-elements/global-elements-img/user-icon.svg";
+    } else {
+        const error = await response.text();
+        alert(`Помилка: ${error}`);
+    }
+}
+
+const userAccountButton = document.querySelector(".user-account-button");
+if (userAccountButton) {
+    const userAccountComputer = document.querySelector(".header-navigation__menu-item-dropdown-user-account-computer");
+    userAccountButton.addEventListener("click", () => {
+        userAccountComputer.classList.toggle("active");
+    });
+}
+else {
+    console.log("");
+}
