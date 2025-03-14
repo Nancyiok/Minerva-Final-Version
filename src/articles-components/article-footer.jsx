@@ -33,11 +33,10 @@
 // export default ArticleFooter;
 
 import React, { useState } from 'react';
-
 function ArticleFooter({ data }) {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [linkToShare, setLinkToShare] = useState(window.location.href);
-
+    console.log(data);
+    const [linkToShare, setLinkToShare] = useState(`../article-page/article.html?id=${data.id}`);
     const handleShareClick = () => {
         if (navigator.share) {
             navigator.share({
@@ -47,6 +46,7 @@ function ArticleFooter({ data }) {
                 .then(() => {
                     console.log('Дякуємо що поділились!');
                 })
+
                 .catch(console.error);
         } else {
             setIsDialogOpen(true);

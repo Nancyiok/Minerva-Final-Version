@@ -1,13 +1,10 @@
 import React from "react";
 import serverURL from "../../../web/js/global/server-url.js";
 
-function readArticle(id) {
-    // const idsave = sessionStorage.setItem("newsArticleId", JSON.stringify(id));
-
-    // console.log(idsave);
-    window.location.href = `../article-page/article.html?id=${id}`;
-    // window.location.href = `${window.location.origin}/../article-page/article.html?id=${id}`;
-
+async function readArticle(id) {
+    sessionStorage.setItem("newsArticleId", JSON.stringify(id));
+    console.log("Saved article ID to session:", id); 
+    window.location.href = `../article-page/article.html`; 
 }
 
 

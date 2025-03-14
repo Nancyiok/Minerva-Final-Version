@@ -89,7 +89,7 @@ buttonForgotPassword.addEventListener("click", async (event) => {
             const checkEmail = await fetch(`${serverURL}/api/EditProfile/DropPasswordCode`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ Email: resetPasswordEmail.value })
+                body: JSON.stringify({ email: resetPasswordEmail.value })
             });
 
             if (checkEmail.ok) {
@@ -118,6 +118,7 @@ buttonForgotPassword.addEventListener("click", async (event) => {
             else {
                 const error = await checkEmail.json();
                 const errorMessage = error;
+                console.log(error);
                 if (errorMessage == "ID is not valid") {
                     formMessageCode.innerHTML = `<p class="sumbit-step-problem">Такого користувача не існує!</p>`;
                     resetPasswordEmail.classList.add("incorrect");
@@ -179,6 +180,7 @@ changePasswordButton.addEventListener("click", async (event) => {
         }, 1500);
         return; 
     }
+    
     try {
         const checkEmail = await fetch(`${serverURL}/api/EditProfile/DropPassword`, {
             method: "POST",

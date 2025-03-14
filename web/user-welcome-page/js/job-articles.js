@@ -16,6 +16,7 @@ async function getInfoAboutArticles() {
             console.log(error);
             return;
         }
+
         const data = await response.json();
         const vacancies = Object.values(data);
         vacancies.forEach(vacancy => createCard(vacancy, cardsContainer));
@@ -30,12 +31,11 @@ function createCard(data, container) {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.id = "card" + data.id;
-
     const cardIcon = document.createElement("div");
     cardIcon.classList.add("card__icon");
 
     const img = document.createElement("img");
-    img.src = data.photo || "default-image.jpg";
+    img.src = `${serverURL}` + data.photo || "default-image.jpg";
     img.alt = data.title || "Назва вакансії";
     cardIcon.appendChild(img);
 
@@ -54,18 +54,19 @@ function createCard(data, container) {
     cardText.appendChild(p);
 
     const a = document.createElement("a");
-    // let url = new URL("../job-article-page/job-page-article.html", window.location.href); // Base URL added
-    // console.log(url.href)
-    // url.searchParams.set('id', `${data.id}`);
-    const url = `../job-article-page/job-page-article.html?id=${data.id}` 
+    const url = `../job-article-page/job-page-article.html?id=${data.id}`
     console.log(url);
-    a.href = url; 
+    a.href = url;
     a.classList.add("card__button");
     a.innerText = "Переглянути";
-
+    a.addEventListener("click", () => {
+        sessionStorage.setItem("vacancyId", JSON.stringify(data.id));
+    });
+    
     cardDiv.appendChild(cardIcon);
     cardDiv.appendChild(cardText);
     cardDiv.appendChild(a);
     container.appendChild(cardDiv);
     return container;
 }
+

@@ -14,9 +14,16 @@ function ArticleComponent() {
             //     console.warn("Не найден ID статьи в sessionStorage.");
             //     return;
             // }
-            const urlParams = new URLSearchParams(window.location.search);
+            // Получение полного URL
+            const url = new URL(window.location.href);
+
+            // Создание объекта URLSearchParams
+            const urlParams = new URLSearchParams(url.search);
+
+            // Получение значения параметра 'id'
             const id = urlParams.get('id');
-            console.log(id);
+
+            console.log(id); 
             try {
                 const response = await fetch(`${serverURL}/api/Articles/${parseInt(sessionStorage.getItem("newsArticleId")) }/Article`, {
                     method: "GET",
