@@ -1,6 +1,8 @@
 function init() {
+    import("../global/lazy-loading.js");
     import("../global/header.js");
     import("./faq.js");
+    import("./partners.js");
     import("./team-section-form-validation.js");   
 }
 const totalPartials = document.querySelectorAll(

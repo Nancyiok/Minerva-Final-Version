@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Співбесіда</title>
+    <link rel="shortcut icon" href="../../web-icon.png" type="image/x-icon">
+    </link>
+    <link rel="stylesheet" href="../interview/css/inteview.css">
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../global-elements/global.header-user.partial.html">
+    </header>
+
+    <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./about-inteviews.partial.html">
+    </section>
+    <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./interview-description.partial.html">
+    </section>
+    <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./interview-planning.partial.html">
+    </section>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script src="./js/interview.js"></script>
+</body>
+
+</html>

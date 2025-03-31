@@ -1,7 +1,8 @@
 function init() {
+    import("../../js/global/lazy-loading.js")
     import("./modal-window.js");
     import("../../js/global/header.js");
-    import("./job-articles.js")
+    import("./search-vacancies.js");
 }
 const totalPartials = document.querySelectorAll(
     '[hx-trigger="load"], [data-hx-trigger="load"]'

@@ -5,7 +5,7 @@ function ArticleHeader({ data }) {
                 <img src="./img/circles.svg" alt="Декоративные круги" />
             </div>
             <div className="article__user-info">
-                <img className="article__avatar" src="./img/profile-photo.jpg" alt="Аватар пользователя" />
+                <img className="article__avatar" src="./img/profile-photo.jpg" alt="Аватар користувача" />
                 <div className="article__details">
                     <p className="article__nickname">Автор: {data.article_author_id}</p>
                     <p className="article__date">

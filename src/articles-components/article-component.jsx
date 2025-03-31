@@ -9,21 +9,6 @@ function ArticleComponent() {
 
     useEffect(() => {
         const fetchArticle = async () => {
-            // const articleId = Number(sessionStorage.getItem("newsArticleId"));
-            // if (!articleId) {
-            //     console.warn("Не найден ID статьи в sessionStorage.");
-            //     return;
-            // }
-            // Получение полного URL
-            const url = new URL(window.location.href);
-
-            // Создание объекта URLSearchParams
-            const urlParams = new URLSearchParams(url.search);
-
-            // Получение значения параметра 'id'
-            const id = urlParams.get('id');
-
-            console.log(id); 
             try {
                 const response = await fetch(`${serverURL}/api/Articles/${parseInt(sessionStorage.getItem("newsArticleId")) }/Article`, {
                     method: "GET",
@@ -39,10 +24,9 @@ function ArticleComponent() {
                 }
 
                 const data = await response.json();
-                console.log("Данные статьи:", data);
                 setArticleData(data);
             } catch (err) {
-                console.error("Ошибка запроса:", err);
+                console.error("Помилка запиту:", err);
             }
         };
 

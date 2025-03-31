@@ -10,13 +10,17 @@
 
 :root {
   --button-dark-color: #1F545B;
+  --bright-color-white: #D7FAFF;
   --dark-text-color: #1F545B;
+  --dark-background-color: #1F545B;
   --black-text-color: #000000;
   --decoration-line-color-black: #000000;
   --decoration-line-color-green-light: #4AA4B0;
   --background-color-green-light: #4AA4B0;
+  --text-color-green-light: #4AA4B0;
   --background-color-green-bright: #F0FFFE;
   --decoration-line-color: #1F545B;
+  --corousel-button: #1F545B;
   --background-color-dark-green: #1F545B;
   --button-dark-color-hover: #163c41;
   --background-color-dark: #163c41;
@@ -43,7 +47,7 @@
   --background-color-succes: #c3f4c3;
   --team-section-form-update-message-warning: #ffa06c;
   --team-section-form-update-message-error: #ff6c6c;
-  --incorrect-background:#fad9d9;
+  --incorrect-background: #fad9d9;
   --incorrect-border: #ff6c6c;
   --login-form-message-error: #ff6c6c;
   --footer-background-color: #D0EDEB;
@@ -56,6 +60,7 @@
   --indicator-background-color-current-step: #1F545B;
   --news-card-section-color: #F0FFFE;
   --news-card-descriptionbackground-color: #4AA4B0;
+  --time-background-color: #4AA4B0;
   --button-color-green-ligth: #4AA4B0;
   --background-welcome-modal: #1F545B;
   --input-search-job-color: #CDEEEB;
@@ -77,7 +82,26 @@
   --job-article-background-color: #F0FFFE;
   --job-article-header-background-color: #1691A1;
   --border-faq-section: #DFF4F2;
-  font-size: 16px;
+  --calendar-bg-color: #CDEEEB;
+  --calendar-font-color: #000000;
+  --weekdays-border-bottom-color: #404040;
+  --calendar-date-hover-color: #505050;
+  --calendar-current-date-color: #4aa3ae;
+  --calendar-decorate-date-color: #4aa3ae;
+  --calendar-today-color: #0d3f45;
+  --calendar-today-innerborder-color: transparent;
+  --calendar-nextprev-bg-color: transparent;
+  --next-prev-arrow-color: #FFF;
+  --calendar-border-radius: 16px;
+  --calendar-prevnext-date-color: #7b7b7b font-size: 16px;
+  --background-articles-color: #CDEEEB;
+  --background-interview-color-header1: #84CFD1;
+  --background-interview-color-header2: #D0EDEB;
+  --interview-background-color: #F0FFFE;
+  --calendar-busy-color: #f6bbbb;
+  --count-down-background-color: #DFF4F2;
+  --calendar-input-background-color: #DFF4F2;
+  --calendar-section-background-color: #1691A1;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
 }
@@ -126,4 +150,28 @@ body {
 input {
   font-family: Montserrat,
     sans-serif;
+}
+
+
+.lazy-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lazy-section * {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.lazy-section.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lazy-section.loaded * {
+  opacity: 1;
+  transform: translateY(0);
 }

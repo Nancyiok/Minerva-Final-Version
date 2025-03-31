@@ -1,7 +1,9 @@
 const updateForm = document.querySelector(".form-update__form");
 const inputFormUpdate = document.querySelector(".form-update__input");
 const formUpdateMessage = document.querySelector(".form-update__message");
+import serverURL from "../../js/global/server-url.js";
 const updateFormPattern = /^\S+@\S+\.\S+$/;
+
 function checkPatternValidation(input, pattern) {
     return pattern.test(input);
 }
@@ -26,12 +28,8 @@ updateForm.addEventListener("submit", async (event) => {
     }
     else {
         try {
-            const response = await fetch(updateForm.action, {
-                method: updateForm.method,
-                body: new FormData(updateForm),
-                headers: {
-                    Accept: "application/json",
-                },
+            const response = await fetch(`${serverURL}/api/Users/${inputValue}/AddMail`, {
+                method: "GET"
             });
             if (response.ok) {
                 formUpdateMessage.innerHTML = `<p class="form-update__message-success">Дякуємо за підписку!</p>`;

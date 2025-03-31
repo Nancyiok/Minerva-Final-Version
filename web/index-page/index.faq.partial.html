@@ -1,6 +1,7 @@
 <section class="faq">
+    <div class="faq-overlay"></div>
     <div class="faq__container">
-        <header class="faq__header">
+        <header class="faq__header lazy-section">
             <h2 class="faq__title">Часті запитання</h2>
             <div class="faq__description">
                 <p>Маєш запитання? Можливо, ми вже знайшли на нього відповідь!</p>
@@ -34,7 +35,8 @@
                 <div class="accordion__content">
                     <p class="accordion__text">
                         Ми надаємо комплексну підтримку, включаючи вебінари, вакансії та корисну інформацію. Наша
-                        віддана команда готова допомогти вам досягти успіху. Крім того, ви можете отримати доступ до таких
+                        віддана команда готова допомогти вам досягти успіху. Крім того, ви можете отримати доступ до
+                        таких
                         ресурсів, як тести, пробні інтерв’ю та перевірка CV.
                     </p>
                 </div>
@@ -58,12 +60,52 @@
                 </div>
             </div>
         </div>
-        <header class="faq__another-questions">
+        <header class="faq__another-questions lazy-section">
             <h4 class="faq__another-questions-title">Все ще є питання?</h4>
             <div class="faq__another-questions-description">
                 <p>Ми тут щоб допомогти тобі!</p>
             </div>
-            <a class="faq__another-questions-button" href="../../web/complaint-page/complaint_page.html">Зв'язатися</a>
+            <a class="faq__another-questions-button">Зв'язатися</a>
         </header>
+    </div>
+    <div class="faq__form--section">
+        <div class="faq__form-container">
+            <div class="complaint-form_1">
+                <div class="right-half">
+                    <div class="image-container">
+                        <img src="./web/index-page/index-page-img/herbs2.svg" alt="Картинка 1" class="top-left">
+                        <img src="./web/index-page/index-page-img/herbs.svg" alt="Картинка 2" class="top-right">
+                        <img src="./web/index-page/index-page-img/herbs1.svg" alt="Картинка 3" class="bottom-left">
+                        <div class="center-text">Маєте питання або якусь проблему?</div>
+                    </div>
+                </div>
+                <img src="./web/index-page/index-page-img/exit.svg" alt="Хрестик" class="exit">
+                <div class="left-half">
+                    <header class="help__header">
+                        <div class="help__decor help__decor--left">
+                            <img src="./web/index-page/index-page-img/index.leaves-left.svg"
+                                alt="Листя до вінку прикраса зліва">
+                        </div>
+                        <h2 class="help__title">Ми тут щоб вам допомогти</h2>
+
+                        <div class="help__decor help__decor--right">
+                            <img src="./web/index-page/index-page-img/index.leaves-right.svg"
+                                alt="Листя до вінку прикраса справа">
+                        </div>
+                    </header>
+                    <br>
+                    <form class="complaint-form">
+                        <input type="text" id="title" name="title" placeholder="Напишіть тему звернення"
+                            class="input-field">
+                        <p></p>
+                        <textarea type="text" id="complaint" name="complaint" rows="4" placeholder="Ваше звернення..."
+                            class="textarea-field"></textarea>
+                        <div class="submit-container">
+                            <input type="button" value="Відправити" class="submit-button">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </section>

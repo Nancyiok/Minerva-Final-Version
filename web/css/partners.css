@@ -1,0 +1,39 @@
+.clients-carousel {
+    position: relative;
+    max-width: 70%;
+    margin: 80px auto 50px;
+    overflow: hidden;
+
+}
+
+.clients-carousel__header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text-color);
+    font-size: 2rem;
+}
+
+.clients-carousel__slide {
+    list-style-type: none;
+}
+
+.clients-carousel__track-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.clients-carousel__track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel__image {
+    padding: 20px 30px;
+    transform: scale(0.3);
+    display: block;
+}

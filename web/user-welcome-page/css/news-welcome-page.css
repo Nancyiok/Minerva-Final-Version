@@ -153,6 +153,7 @@ body.visible {
     padding: 20px 0px;
     max-width: 250px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    height: 550px;
 }
 
 .user-welcome-news-card-container {
@@ -175,7 +176,8 @@ body.visible {
 }
 
 .user-welcome-news-card__img {
-    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .user-welcome-news-card__button {

@@ -1,0 +1,73 @@
+.header-interview-text {
+    max-width: 400px;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 400px) {
+    .header-interview-text {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (min-width: 600px) {
+    .header-interview-text {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .header-interview-text {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .header-interview-text {
+        font-size: 1.5rem;
+    }
+}
+.header-interview__part1 {
+    text-align: center;
+
+}
+
+.header-interview__part2  {
+    text-align: center;
+    background-color: var(--background-interview-color-header2);
+}
+
+.header-interview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: var(--background-interview-color-header1);
+    gap: 50px;
+    padding: 20px;
+}
+
+.header-interview__title {
+    padding-bottom: 30px;
+    font-size: 2rem;
+    color: var(--bright-text-color);
+}
+
+@media (min-width: 500px) {
+    .header-interview__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .header-interview__title {
+        font-size: 3rem;
+    }
+}
+
+.header-interview-text {
+    padding: 10px;
+}
+
+

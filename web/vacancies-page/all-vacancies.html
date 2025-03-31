@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі вакансії</title>
+    <link rel="shortcut icon" href="../../web-icon.png" type="image/x-icon">
+    <link href="./css/vacancies.css" rel="stylesheet">
+    </link>
+    </link>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+</head>
+<header data-hx-trigger="load" data-hx-swap="outerHTML"
+    data-hx-get="../global-elements/global.header-user.partial.html">
+</header>
+
+<body>
+    <section>
+        <div class="jobs__header">
+            <h1 class="job__title">Всі вакансії</h1>
+            <p>Перегляньте всі актуальні вакансії та знайдіть ідеальну можливість для себе! Ми пропонуємо різноманітні
+                позиції для
+                студентів та досвідчених фахівців, де ви зможете реалізувати свої навички та розвиватися в професійному
+                середовищі.</p>
+        </div>
+        <div class="job__card-container">
+        </div>
+    </section>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script src="./js/vacancies.js"></script>
+</body>
+
+</html>

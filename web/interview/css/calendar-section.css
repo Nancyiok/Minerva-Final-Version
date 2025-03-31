@@ -1,0 +1,108 @@
+
+.interview-planning__header,
+p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.interview-planning__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.interview-planning {
+    background-color: var(--calendar-section-background-color);
+}
+
+
+.interview-planning__input--email,
+.interview-planning__input--name,
+.interview-planning__input--surname {
+    background-color: var(--calendar-input-background-color);
+    border: none;
+    padding: 10px 20px;
+}
+
+.interview-planning__input--textarea {
+    background-color: var(--calendar-input-background-color);
+    border: none;
+    padding: 10px 20px;
+    height: 100px;
+}
+
+.interview-planning {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    gap: 40px;
+}
+
+.interview-planning__text {
+    padding: 20px 0;
+    color: var(--bright-text-color);
+    font-weight: 500;
+}
+
+.interview-planning__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.interview-planning__title {
+    color: var(--bright-color-white);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.interview-planning__input--textarea::placeholder {
+    font-family: Montserrat, sans-serif;
+}
+
+
+.interview-planning__input--email:focus,
+.interview-planning__input--name:focus,
+.interview-planning__input--surname:focus,
+.interview-planning__input--textarea:focus {
+    outline: none;
+    background-color: #ffffff;
+}
+
+.interview-planning__input--textarea {
+    background-color: var(--calendar-input-background-color);
+    border: 2px solid var(--decoration-line-color-black);
+    padding: 10px 20px;
+    height: 100px;
+}
+
+.interview-planning__input--email,
+.interview-planning__input--name,
+.interview-planning__input--surname,
+.interview-planning__input--textarea {
+    background-color: var(--calendar-input-background-color);
+    border: 2px solid var(--decoration-line-color-black);
+    padding: 10px 20px;
+}
+.interview-planning__input--email::placeholder,
+.interview-planning__input--name::placeholder,
+.interview-planning__input--surname::placeholder,
+.interview-planning__input--textarea::placeholder {
+    font-weight: 500;
+}
+
+.interview-planning__input--textarea {
+    background-color: var(--calendar-input-background-color);
+    border: 2px solid var(--decoration-line-color-black);
+    padding: 10px 20px;
+    height: 100px;
+}
+

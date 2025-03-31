@@ -23,7 +23,7 @@
 .article-component {
     background-color: var(--article-background-color);
     border-radius: 30px;
-    margin: 20px;
+    margin: 10px;
     border: 3px solid var(--decoration-line-color-black);
 }
 
@@ -33,7 +33,6 @@
     border-radius: 100%;
     border: 4px solid var(--bright-decoration-color);
 }
-
 
 .article__user-info {
     display: flex;
@@ -120,7 +119,7 @@
 
 @media(min-width: 400px) {
     .article-section {
-        background: url("../img/backround-article-section-tablet.svg") no-repeat center;
+        background: url("../img/backround-article-section-tablet.svg")  center;
     }
 
     .article__decoration-circles img {
@@ -175,7 +174,7 @@
 
 @media(min-width: 1000px) {
     .article-section {
-        background: url("../img/backround-article-section-computer.svg") no-repeat center;
+        background: url("../img/backround-article-section-computer.svg") center;
     }
 }
 
@@ -313,4 +312,78 @@ img {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+.divArticle {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.divArticle h3 {
+    color: #2a7ae2;
+    font-size: 24px;
+    margin-top: 20px;
+    border-bottom: 2px solid #2a7ae2;
+    padding-bottom: 5px;
+}
+
+.divArticle h2 {
+    color: #1d5bbf;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.divArticle h1 {
+    color: #154a8f;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+.divArticle p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+.divArticle img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 15px 0;
+}
+
+
+.divArticle a {
+    color: #2a7ae2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.divArticle a:hover {
+    color: #154a8f;
+    text-decoration: underline;
+}
+
+
+.divArticle ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.divArticle ul li {
+    font-size: 18px;
+    margin-bottom: 5px;
 }

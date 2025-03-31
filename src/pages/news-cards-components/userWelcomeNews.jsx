@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import UserWelcomeNewsCard from "./newsCard";
 import UserWelcomeNewsHeader from "./welcomeNewsHeader";
 import serverURL from "../../../web/js/global/server-url.js";
-import ArticleComponent from "../../articles-components/article-component.jsx";
 
 function UserWelcomeNews() {
     const [newsData, setNewsData] = useState([]);
+    const [imageURLs, setImageURLs] = useState({}); 
 
     useEffect(() => {
         async function getArticleInfo() {
@@ -24,14 +24,13 @@ function UserWelcomeNews() {
                         const latestNews = Object.keys(data).map(key => (
                             {
                                 id: data[key].id,
-                                imgSrc: data[key].src || "/default-image.jpg",
+                                imgSrc: `${serverURL}${data[key].photo}` || "/default-image.jpg",
                                 title: data[key].title || "Без назви",
                                 description: data[key].first_paragraph || "Опис відсутній",
                                 views: data[key].views || 0,
                                 theme: data[key].theme || "Без теми"
-                            }));
-
-                        console.log("Оброблені новини:", latestNews);
+                            }
+                        ));
                         setNewsData(latestNews);
                     } else {
                         console.warn("Дані API порожні або некоректні.");
@@ -46,6 +45,25 @@ function UserWelcomeNews() {
         }
         getArticleInfo();
     }, []);
+
+    useEffect(() => {
+        async function loadImages() {
+            let newImageURLs = {};
+
+            for (const news of newsData) {
+                if (!newImageURLs[news.id]) {
+                    const imgSrc = await loadImage(news.imgSrc);
+                    newImageURLs[news.id] = imgSrc;
+                }
+            }
+
+            setImageURLs(newImageURLs);
+        }
+
+        if (newsData.length > 0) {
+            loadImages();
+        }
+    }, [newsData]);
 
     const handleArticleClick = (id) => {
         setSelectedArticleId(id);
@@ -62,7 +80,7 @@ function UserWelcomeNews() {
                                 <UserWelcomeNewsCard
                                     key={news.id}
                                     id={news.id}
-                                    imgSrc={news.imgSrc}
+                                    imgSrc={imageURLs[news.id] || "/default-image.jpg"}
                                     title={news.title}
                                     description={news.description}
                                     onClick={() => handleArticleClick(news.id)}
@@ -76,6 +94,20 @@ function UserWelcomeNews() {
             </div>
         </section>
     );
+}
+
+async function loadImage(url) {
+    try {
+        const response = await fetch(url, {
+            headers: { "ngrok-skip-browser-warning": "true" },
+        });
+        if (!response.ok) throw new Error("Помилка завантаження зображення");
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (error) {
+        console.error("Помилка завантаження:", error);
+        return "/default-image.jpg"; 
+    }
 }
 
 export default UserWelcomeNews;
