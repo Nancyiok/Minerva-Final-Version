@@ -56,9 +56,8 @@
 
 .header-navigation__main-drop-menu {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 40px 20px;
-    position: fixed;
     z-index: 1000;
     overflow: hidden;
 }
