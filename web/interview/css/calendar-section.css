@@ -1,10 +1,11 @@
-
 .interview-planning__header,
 p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
 }
 
 .interview-planning__form {
@@ -13,10 +14,6 @@ p {
     gap: 20px;
     width: 100%;
 }
-.interview-planning {
-    background-color: var(--calendar-section-background-color);
-}
-
 
 .interview-planning__input--email,
 .interview-planning__input--name,
@@ -34,6 +31,9 @@ p {
 }
 
 .interview-planning {
+    background-color: var(--calendar-section-background-color);
+    animation: fadeOut 0.5s ease-in-out;
+    transition: all 0.3s ease; 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -92,6 +92,7 @@ p {
     border: 2px solid var(--decoration-line-color-black);
     padding: 10px 20px;
 }
+
 .interview-planning__input--email::placeholder,
 .interview-planning__input--name::placeholder,
 .interview-planning__input--surname::placeholder,
@@ -106,3 +107,13 @@ p {
     height: 100px;
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}

@@ -11,15 +11,30 @@
 .contact-us__title {
     font-size: 3rem;
     overflow: hidden;
-        /* Ensures the content is not revealed until the animation */
-        border-right: .2rem solid rgb(42, 95, 85);
-        /* The typewriter cursor */
-        white-space: nowrap;
-        /* Keeps the content on a single line */
-        margin: 0 auto;
-        /* Centers the text */
-        /* Adjust as needed */
-        animation: typing 2s steps(40, end), blink-caret .7s step-end ;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black;
+    width: 0;
+    animation: typing 3s steps(20, end) forwards, blink 0.7s step-end infinite;
+}
+.contact-us__title h2{
+    color: var(--green-text-color);
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 90%
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
 }
 
 .contact-us__header {
@@ -86,6 +101,11 @@
 .contact-us__social-links {
     padding: 10px 0;
     max-width: 340px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .contact-us__location-icon,
@@ -112,27 +132,4 @@
 
 .icon {
     padding-left: 10px;
-}
-
-
-@keyframes typing {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
-
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: rgb(36, 62, 62);
-    }
 }

@@ -13,8 +13,8 @@ function UserWelcomeNewsCard({ id, imgSrc, title, description }) {
         <div className="user-welcome-news-card" id={`card-${id}`}>
             <img
                 className="user-welcome-news-card__img"
-                src={imgSrc || "/default-image.jpg"}
-                alt={`Зображення для статті`}
+                src={imgSrc || "./img/photo-before-download.svg"}
+                alt={``}
             />
             <h3 className="user-welcome-news-card__title">{title.length > 30 ? title.slice(0, 30) + "..." : title}</h3>
             <p className="user-welcome-news-card__description">{description.length > 60 ? description.slice(0, 60) + "..." : description}</p>

@@ -10,30 +10,34 @@
                     d="M41.9375 28.5938C41.9375 28.0882 42.1383 27.6033 42.4958 27.2458C42.8533 26.8883 43.3382 26.6875 43.8438 26.6875H47.6562C48.1618 26.6875 48.6467 26.8883 49.0042 27.2458C49.3617 27.6033 49.5625 28.0882 49.5625 28.5938V32.4062C49.5625 32.9118 49.3617 33.3967 49.0042 33.7542C48.6467 34.1117 48.1618 34.3125 47.6562 34.3125H43.8438C43.3382 34.3125 42.8533 34.1117 42.4958 33.7542C42.1383 33.3967 41.9375 32.9118 41.9375 32.4062V28.5938Z"
                     fill="black" />
             </svg>
-
         </div>
-
         <p class="interview-planning__text">
             Виберіть дату та час для співбесіди.<br> Після підтвердження HR звяжеться з вами найближчим часом.
         </p>
         <form class="interview-planning__form">
             <input type="text" class="interview-planning__input--email" placeholder="Введіть вашу пошту" required>
+            <p class="error-handle-email"></p>
             <input type="text" class="interview-planning__input--name" placeholder="Введіть ваше ім'я" required>
+            <p class="error-handle-name"></p>
             <input type="text" class="interview-planning__input--surname" placeholder="Введіть ваше прізвище" required>
+            <p class="error-handle-surname"></p>
             <textarea class="interview-planning__input--textarea" placeholder="Введіть ваше повідомлення"
                 required></textarea>
             <button type="button" class="interview-planning__button">Запланувати співбесіду</button>
         </form>
     </div>
-
     <div class="interview-planning__calendar-container ">
-        <p class="interview-planning__text">
+        <p class="interview-planning__text label-for-calendar">
             Виберіть дату та час для співбесіди.
         </p>
-
         <div class="interview-planning__calendar calendar">
         </div>
         <div class="interview-planning__time ">
         </div>
+    </div>
+    <div class="thanks-for-record-metting">
+        <p>Дякуємо за ваш запис! Чекайте підтвердження від HR</p>
+        <img src="./img/thanks-for-recording.svg" alt="thanks-for-recording"
+            class="thanks-for-record-metting__img">
     </div>
 </div>

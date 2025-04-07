@@ -47,11 +47,15 @@
   --background-color-succes: #c3f4c3;
   --team-section-form-update-message-warning: #ffa06c;
   --team-section-form-update-message-error: #ff6c6c;
-  --incorrect-background: #fad9d9;
+  --calendar-section-form-update-message-error: #ff6c6c;
+  --incorrect-background: #fce6e6;
   --incorrect-border: #ff6c6c;
   --login-form-message-error: #ff6c6c;
+  --input-error-background-color: #f8d4d4;
   --footer-background-color: #D0EDEB;
+  --table-background-color: #D0EDEB;
   --button-decoration-color: #1F545B;
+  --green-text-color: #1F545B;
   --form-decoration-color: #1F545B;
   --button-decoration-color: #1F545B;
   --form-registration-message-success: #80e080;
@@ -81,6 +85,7 @@
   --footer-article-background-color: #C0F8FF;
   --job-article-background-color: #F0FFFE;
   --job-article-header-background-color: #1691A1;
+  --article-accent-color: #1691A1;
   --border-faq-section: #DFF4F2;
   --calendar-bg-color: #CDEEEB;
   --calendar-font-color: #000000;
@@ -99,9 +104,11 @@
   --background-interview-color-header2: #D0EDEB;
   --interview-background-color: #F0FFFE;
   --calendar-busy-color: #f6bbbb;
+  --calendar-time-busy-color: #f6bbbb;
   --count-down-background-color: #DFF4F2;
   --calendar-input-background-color: #DFF4F2;
   --calendar-section-background-color: #1691A1;
+  --table-border-color: #0f3e44;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
 }

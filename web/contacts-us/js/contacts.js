@@ -1,10 +1,6 @@
 function init() {
     import("../../js/global/header.js");
-    import("./navigation-interview.js");
-    import("./form-navigate.js")
     import("../../js/global/lazy-loading.js");
-    
-    import("./calendar.js");
 }
 const totalPartials = document.querySelectorAll(
     '[hx-trigger="load"], [data-hx-trigger="load"]'

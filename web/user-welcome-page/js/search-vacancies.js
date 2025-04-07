@@ -87,7 +87,7 @@ function createCard(data, container) {
     img.alt = data.title || "Назва вакансії";
     cardIcon.appendChild(img);
 
-    const imageUrl = data.photo ? `${serverURL}${data.photo}` : "default-image.jpg";
+    const imageUrl = data.photo ? `${serverURL}${data.photo}` : "./img/photo-before-download.svg";
     loadImage(imageUrl, img);
 
     const cardText = document.createElement("div");

@@ -1,5 +1,8 @@
 import serverURL from "../../js/global/server-url.js";
 let dataPlanMeeting = [];
+let selectedMeetingDate = null;
+let selectedMeetingTime = null;
+const selectDate = document.querySelector(".label-for-calendar");
 const MonthName = [
     "Січ",
     "Лют",
@@ -60,10 +63,23 @@ function CalendarControl() {
         navigateToPreviousMonth: function () {
             calendar.setMonth(calendar.getMonth() - 1);
             calendarControl.attachEventsOnNextPrev();
+            const timeLabels = document.querySelectorAll(".calendar-time");
+            timeLabels.forEach((time) => {
+                time.classList.remove("calendar-meeting-planed");
+                time.style.backgroundColor = "";
+                time.style.pointerEvents = "auto";
+            });
+
         },
         navigateToNextMonth: function () {
             calendar.setMonth(calendar.getMonth() + 1);
             calendarControl.attachEventsOnNextPrev();
+            const timeLabels = document.querySelectorAll(".calendar-time");
+            timeLabels.forEach((time) => {
+                time.classList.remove("calendar-meeting-planed");
+                time.style.backgroundColor = "";
+                time.style.pointerEvents = "auto";
+            });
         },
         navigateToCurrentMonth: function (e) {
             e.preventDefault();
@@ -73,6 +89,12 @@ function CalendarControl() {
             calendar.setYear(currentYear);
             calendarControl.attachEventsOnNextPrev();
             getFillMeetings();
+            const timeLabels = document.querySelectorAll(".calendar-time");
+            timeLabels.forEach((time) => {
+                time.classList.remove("calendar-meeting-planed");
+                time.style.backgroundColor = "";
+                time.style.pointerEvents = "auto";
+            });
         },
         displayYear: function () {
             let yearLabel = document.querySelector(".calendar .calendar-year-label");
@@ -85,14 +107,11 @@ function CalendarControl() {
             monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
         },
         selectDate: function (e) {
-
-            console.log(
-                `${e.target.textContent} ${calendarControl.calMonthName[calendar.getMonth()]
-                } ${calendar.getFullYear()}`
-            );
+            selectedMeetingDate = `${e.target.textContent} ${calendarControl.calMonthName[calendar.getMonth()]
+                } ${calendar.getFullYear()}`;
+            selectDate.innerHTML = `<p>Ви обрали дату: <span class="date-span-selected">${selectedMeetingDate}</span><span class="time-span-selected">${selectedMeetingTime ? selectedMeetingTime : "" }</span><p>`;
             e.preventDefault();
             let selectedDate = null;
-
             document.querySelector(".calendar-body").addEventListener("click", (e) => {
                 if (!e.target.classList.contains("dateNumber")) return;
 
@@ -256,13 +275,13 @@ function CalendarControl() {
             calendarControl.plotSelectors();
             calendarControl.plotDates();
             calendarControl.attachEvents();
-        }
+        },
+
     };
     calendarControl.init();
 }
 
 function chooseTime() {
-
     let myDate1 = new Date();
     myDate1.setHours(12);
     let myDate2 = new Date();
@@ -284,6 +303,7 @@ function chooseTime() {
     <div class="time time4"><a href="#" class="calendar-time">${myDate4.getHours()}:00</a></div>
     </a></div>
     </div>`;
+    selectTime();
 }
 
 const calendarControl = new CalendarControl();
@@ -317,7 +337,6 @@ async function getFillMeetings() {
 
                     }
                 }
-
             }
         }
     }
@@ -326,6 +345,18 @@ async function getFillMeetings() {
         console.error("Помилка при отриманні заповнених днів:", error);
     }
 
+}
+
+function selectTime() {
+    const timeLabels = document.querySelectorAll(".calendar-time");
+    timeLabels.forEach((time) => {
+        time.addEventListener("click", (e) => {
+            e.preventDefault();
+            const selectedTime = e.target.textContent;
+            selectedMeetingTime = `${selectedTime}`;
+            selectDate.innerHTML = `<p>Ви обрали дату: <span class="date-span-selected">${selectedMeetingDate}</span><span class="time-span-selected">${selectedMeetingTime}</span><p>`;
+        });
+    });
 }
 
 function getFillMeetingsTime(selectedDate) {
@@ -345,13 +376,20 @@ function getFillMeetingsTime(selectedDate) {
                 if (time.textContent === `${dataNow.getHours()}:00`) {
                     time.classList.add("calendar-meeting-planed");
                     time.style.backgroundColor = "#f6bbbb";
+                    time.style.pointerEvents = "none";
                 }
                 else {
+                    time.style.pointerEvents = "auto";
                     time.classList.remove("calendar-meeting-planed");
                     time.style.backgroundColor = "";
+                    // time.addEventListener("click", (e) => {
+                    //     e.preventDefault();
+                    //     e.stopPropagation();
+                    // })
                 }
             });
         }
+        selectTime();
     }
 }
 
@@ -384,3 +422,4 @@ if (response.ok) {
     const error = await response.text();
     alert(`Помилка: ${error}`);
 }
+

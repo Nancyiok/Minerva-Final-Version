@@ -24,6 +24,7 @@ function ArticleComponent() {
                 }
 
                 const data = await response.json();
+                console.log("Стаття:", data);
                 setArticleData(data);
             } catch (err) {
                 console.error("Помилка запиту:", err);

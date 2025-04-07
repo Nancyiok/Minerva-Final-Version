@@ -1,4 +1,5 @@
-.calendar, .interview-planning__time {
+.calendar,
+.interview-planning__time {
     position: relative;
     max-width: 400px;
     min-width: 300px;
@@ -12,7 +13,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
 }
 
-.interview-planning__time{
+.interview-planning__time {
     padding: 5px;
 }
 
@@ -48,7 +49,7 @@
     font-weight: 500;
 }
 
-.dateNumber{
+.dateNumber {
     padding: 2px;
 }
 
@@ -181,11 +182,11 @@
     pointer-events: none;
 }
 
-.click{
+.click {
     pointer-events: all;
 }
 
-.calendar-meeting-planed{
+.calendar-meeting-planed {
     background-color: var(--calendar-busy-color);
     border-radius: 10px;
     outline: 1px solid red;
@@ -194,7 +195,17 @@
     text-align: center;
 }
 
-.interview-planning__container{
+.interview-planning__container {
     display: flex;
     flex-direction: column;
+}
+
+
+/* .date-span-selected{
+    
+} */
+
+.time-span-selected {
+    color: var(--calendar-time-busy-color);
+    font-weight: 600;
 }

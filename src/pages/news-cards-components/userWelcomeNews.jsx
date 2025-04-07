@@ -24,7 +24,7 @@ function UserWelcomeNews() {
                         const latestNews = Object.keys(data).map(key => (
                             {
                                 id: data[key].id,
-                                imgSrc: `${serverURL}${data[key].photo}` || "/default-image.jpg",
+                                imgSrc: `${serverURL}${data[key].photo}` || "./img/photo-before-download.svg",
                                 title: data[key].title || "Без назви",
                                 description: data[key].first_paragraph || "Опис відсутній",
                                 views: data[key].views || 0,
