@@ -131,6 +131,7 @@
   --relogin-background-color: #45929C;
   --white-background-color: #ffffff;
   --decoration-line-red: #f07f7f;
+  --footer-background-color-for-article: #d0edeb;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
 }
@@ -241,4 +242,3 @@ input {
   }
 
 }
-

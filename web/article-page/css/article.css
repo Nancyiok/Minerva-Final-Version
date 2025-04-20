@@ -16,6 +16,10 @@
     border-top: 3px solid var(--decoration-line-color-black);
 }
 
+body{
+    background-color: var(--footer-background-color-for-article);
+}
+
 .article__content {
     text-align: center;
 }
