@@ -5,9 +5,7 @@ const sendCVButton = document.querySelector(".cv-send__btn");
 const messageContainer = document.querySelector(".cv-chat__messages");
 const sendButtonImg = document.querySelector(".cv-send__btn--img");
 let userCV = '';
-const loadingSpinnerMessage = document.querySelector(".cv-chat--left-message--loading");
-
-
+let loadingSpinnerMessage = "";
 if (!sessionStorage.getItem("id")) {
     window.location.href = "../../web/relogin-page/relogin-page.html"
 }
@@ -29,8 +27,8 @@ async function makeRestrictForRequest() {
         fileInputCV.style.pointerEvents = "none";
     }
     else {
-sendCVButton.addEventListener("click", sendCVToServer);
-userCV = await checkResumeExistense();
+        sendCVButton.addEventListener("click", sendCVToServer);
+        userCV = await checkResumeExistense();
     }
 }
 
@@ -78,14 +76,14 @@ async function sendCVToServer() {
             return;
         }
         formData.append("File", userCV);
-        console.log(userCV )
+        console.log(userCV)
         const response = await fetch(`${serverURL}/api/Articles/TestAI`, {
             method: "POST",
             body: formData,
         });
         if (response.ok) {
             console.log("OK: ", response.message);
-            loadingSpinnerMessage.remove();
+            loadingSpinnerMessage.style.display = "none";
             const answer = await response.text();
             resposeFromAi(answer);
             makeRestrictForRequest();
@@ -116,6 +114,7 @@ function responseLoading() {
     messageText.innerHTML = `<div class="window-loading__spinner"></div>`;
     message.appendChild(messageText);
     messageContainer.appendChild(message);
+    loadingSpinnerMessage = document.querySelector(".cv-chat--left-message--loading");
 }
 
 function sendCVMessage() {
