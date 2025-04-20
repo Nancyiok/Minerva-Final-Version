@@ -72,3 +72,101 @@
         width: 400px;
     }
 }
+
+.img-size {
+    /* 	padding: 0;
+	margin: 0; */
+    height: 450px;
+    width: 700px;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.modal-content {
+    width: 700px;
+    border: none;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+
+.proposals-carousel {
+    position: relative;
+    max-width: 80%;
+    margin: 90px auto 60px;
+    overflow: hidden;
+
+}
+
+.proposals-carousel__slide {
+    list-style-type: none;
+}
+
+.proposals-carousel__track-container {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.proposals-carousel__track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+
+.proposals-carousel__button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.proposals-carousel__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.myDialog-proposals__dialog {
+    border: none;
+    margin: auto;
+    width: 95%;
+    max-width: 800px;
+    border-radius: 30px;
+    border: 3px solid var(--decoration-line-color-black);
+}
+
+
+.proposals-carousel__button--close {
+    background-color: transparent;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* .proposals-carousel__track{
+    transition: all 0.5s ease-in-out;
+} */
+
+
+.proposals-carousel__slide h4, .proposals-carousel__slide p{
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.proposals-carousel__slide h4{
+    color: var(--green-text-color);
+    text-align: center;
+    margin: 10px 0;
+}

@@ -12,6 +12,11 @@
     max-width: 280px;
 }
 
+.team__member-photo{
+    height: 243px;
+    object-fit: cover;
+}
+
 .team__list {
     display: flex;
     flex-wrap: wrap;

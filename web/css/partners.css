@@ -8,10 +8,15 @@
 
 .clients-carousel__header {
     text-align: center;
-    font-size: 24px;
     font-weight: 700;
     color: var(--dark-text-color);
-    font-size: 2rem;
+    font-size: 1.3rem;
+}
+
+@media (min-width: 800px) {
+    .clients-carousel__header {
+        font-size: 2rem;
+    }
 }
 
 .clients-carousel__slide {
@@ -37,3 +42,10 @@
     transform: scale(0.3);
     display: block;
 }
+
+.clients-carousel__slide img{
+    max-width: 300px;
+    max-height: 100%;
+    object-fit: contain;
+}
+

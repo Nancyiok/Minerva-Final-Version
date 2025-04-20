@@ -11,6 +11,11 @@ const phoneInput = document.querySelector(".account-data__input-number");
 const deleteButton = document.getElementById("deleteAccountBtn");
 const resetButton = document.querySelector(".actions__reset");
 
+if (!sessionStorage.getItem("id")) {
+    window.location.href = "../../web/relogin-page/relogin-page.html"
+}
+
+
 fileInputPhoto.addEventListener("change", function () {
     const file = this.files[0];
     if (file) {

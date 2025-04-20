@@ -10,7 +10,11 @@ const fileInputPhoto = document.getElementById("file-upload-photo");
 const inputPhotoUserLook = document.querySelector(".actions__upload-photo-icon");
 const fileInputCV = document.getElementById("file-upload-cv");
 const saveChangesButton = document.querySelector(".actions__save");
+const cvIcon = document.querySelector(".actions__upload-cv-icon");
 const storedUserId = JSON.parse(sessionStorage.getItem("id"));
+const changeCVUser = document.querySelector(".custom-file-upload-cv");
+
+
 const response = await fetch(`${serverURL}/api/users/${storedUserId}/FullInfo`, {
     method: 'GET',
     headers: {
@@ -27,7 +31,6 @@ if (response.ok) {
         fathernameInput.value = data.fathername;
         fathernameInput.disabled = true;
     }
-    
     loginInput.value = data.username;
     emailInput.value = data.email;
     phoneInput.value = data.phone ? data.phone : "";
@@ -35,9 +38,11 @@ if (response.ok) {
         ? `data:image/jpeg;base64,${data.photo}`
         : "./img/user-photo.svg";
     universityInput.value = data.university ? data.university : "";
-    fileInputCV.value = data.resume ? `data:image/jpeg;base64,${data.resume}` : "";
+    cvIcon.src = data.resume ? `./img/cv-photo-download.svg` : `./img/upload-files.svg`
+    changeCVUser.textContent = data.resume ? "Замінити резюме" : "Завантажити резюме";
+}
 
-} else {
+else {
     const error = await response.text();
     alert(`Помилка: ${error}`);
 }

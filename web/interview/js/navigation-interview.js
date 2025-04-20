@@ -5,6 +5,10 @@ const programmerDescription = document.querySelector(
     ".interview-description-container-programmer"
 ); 
 
+if (!sessionStorage.getItem("id")) {
+    window.location.href = "../../web/relogin-page/relogin-page.html"
+}
+
 hrNav.addEventListener("click", () => {
     hrDescription.style.display = "block";
     hrNav.style.backgroundColor = "#1F545B";

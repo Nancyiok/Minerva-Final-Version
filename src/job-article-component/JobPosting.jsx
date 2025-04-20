@@ -9,12 +9,11 @@ const JobPosting = () => {
     const [jobData, setJobData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [imageSrc, setImageSrc] = useState("./img/job-article-photo.jpg");
     useEffect(() => {
         const fetchJobData = async () => {
             try {
-                const response = await fetch(`${serverURL}/api/Vacancy/${+sessionStorage.getItem("vacancyId")
-                    }/Vacancy`, {
+                const response = await fetch(`${serverURL}/api/Vacancy/${+sessionStorage.getItem("vacancyId")}/Vacancy`, {
                     method: "GET",
                     headers: {
                         "ngrok-skip-browser-warning": "true",
@@ -31,6 +30,27 @@ const JobPosting = () => {
 
                 const data = await response.json();
                 setJobData(data);
+
+                if (data?.vacancy_photo) {
+                    try {
+                        const photoResponse = await fetch(`${serverURL}${data.vacancy_photo}`, {
+                            headers: {
+                                "ngrok-skip-browser-warning": "true",
+                            },
+                        });
+
+                        if (photoResponse.ok) {
+                            const blob = await photoResponse.blob();
+                            const url = URL.createObjectURL(blob);
+                            setImageSrc(url);
+                        } else {
+                            console.warn("Не вдалося завантажити фото, використовується стандартне");
+                        }
+                    } catch (photoErr) {
+                        console.warn("Помилка під час завантаження фото:", photoErr);
+                    }
+                }
+
                 setLoading(false);
             } catch (err) {
                 setError("Error fetching the job posting");
@@ -42,6 +62,7 @@ const JobPosting = () => {
         fetchJobData();
     }, []);
 
+
     if (loading) {
         return <div className="window-loading__spinner"></div>;
     }
@@ -52,7 +73,7 @@ const JobPosting = () => {
 
     return (
         <div className="job-posting">
-            <JobHeader data={jobData} />
+            <JobHeader data={jobData} imageSrc={imageSrc} />
             <div className="job-posting__content">
                 <JobRequirements data={jobData} />
                 <JobBenefits data={jobData} />

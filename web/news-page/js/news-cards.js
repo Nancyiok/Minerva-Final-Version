@@ -19,6 +19,7 @@ const buttonFacts = document.querySelector('button[data-filter="facts"]');
         if (request.ok) {
             const data = await request.json();
             console.log(data);
+            cardsContainer.innerHTML = ""; // очищаємо контейнер перед рендерингом
             renderArticles(data, cardsContainer);
         } else {
             console.error("Помилка запиту:", request.status, request.statusText);
@@ -118,6 +119,8 @@ async function loadImage(url, imgElement) {
         if (!response.ok) throw new Error("Помилка завантаження зображення");
         const blob = await response.blob();
         imgElement.src = URL.createObjectURL(blob);
+        imgElement.style.animation = 'fadeInt 0.5s ease-in-out';
+        imgElement.style.transition = 'all 0.5 ease';
     } catch (error) {
         console.error("Помилка завантаження:", error);
         imgElement.src = "default-image.jpg";

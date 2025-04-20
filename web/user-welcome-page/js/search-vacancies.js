@@ -4,6 +4,10 @@ const searchContainer = document.querySelector(".search-job__card-container");
 const searchInput = document.querySelector(".search-box__input");
 let initialVacancies = [];
 
+if (!sessionStorage.getItem("id")) {
+    window.location.href = "../../web/relogin-page/relogin-page.html"
+}
+
 async function getInfoAboutArticles() {
     try {
         const response = await fetch(`${serverURL}/api/Vacancy/AllVacancies`, {
@@ -61,41 +65,27 @@ searchInput.addEventListener("input", (event) => {
     searchVacancies(searchValue);
 });
 
-async function loadImage(url, imgElement) {
-    try {
-        const response = await fetch(url, {
-            headers: { "ngrok-skip-browser-warning": "true" },
-        });
-        if (!response.ok) throw new Error("Помилка завантаження зображення");
-        const blob = await response.blob();
-        imgElement.src = URL.createObjectURL(blob);
-    } catch (error) {
-        console.error("Помилка завантаження:", error);
-        imgElement.src = "default-image.jpg";
-    }
-}
 
-function createCard(data, container) {
+async function createCard(data, container) {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.id = "card" + data.id;
 
     const cardIcon = document.createElement("div");
     cardIcon.classList.add("card__icon");
-
     const img = document.createElement("img");
-    img.alt = data.title || "Назва вакансії";
+    img.src = "../../web/vacancies-page/img/image-before-download.svg";
+    const cardPhoto = await loadImage(`${serverURL}${data.photo}`);
+    img.src = "../../web/vacancies-page/img/image-before-download.svg";
+    img.src = cardPhoto || "../../web/vacancies-page/img/image-before-download.svg";
     cardIcon.appendChild(img);
-
-    const imageUrl = data.photo ? `${serverURL}${data.photo}` : "./img/photo-before-download.svg";
-    loadImage(imageUrl, img);
-
+    img.alt = data.title || "Назва вакансії";
     const cardText = document.createElement("div");
     cardText.classList.add("card__text");
 
     const h3 = document.createElement("h3");
     h3.classList.add("card__title");
-    h3.innerText =data.title || "Без назви";
+    h3.innerText = data.title || "Без назви";
     const p = document.createElement("p");
     p.classList.add("card__description");
     p.innerText = data.description.length > 70 ? data.description.slice(0, 70) + "..." : data.description || "Опис відсутній";
@@ -117,3 +107,16 @@ function createCard(data, container) {
 }
 
 getInfoAboutArticles();
+
+async function loadImage(url) {
+    try {
+        const response = await fetch(url, {
+            headers: { "ngrok-skip-browser-warning": "true" },
+        });
+        if (!response.ok) throw new Error("Помилка завантаження зображення");
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (error) {
+        console.error("Помилка завантаження:", error);
+    }
+}

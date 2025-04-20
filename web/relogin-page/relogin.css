@@ -1,0 +1,56 @@
+@import "../../web/css/global.css";
+
+body {
+    background-color: var(--relogin-background-color);
+}
+
+.container-relogin-page-header {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-relogin-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0px 0px 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white-background-color);
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    border: 3px solid var(--decoration-line-red);
+}
+
+.relogin-button{
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: var(--background-color-dark-green);
+    color: var(--bright-text-color);
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+
+}
+
+.container-relogin-page-header p {
+    color: var(--decoration-line-red);
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+@media (min-width: 1000px) {
+.relogin-button:hover {
+    background-color: var(--button-dark-color-hover);
+    
+}
+}

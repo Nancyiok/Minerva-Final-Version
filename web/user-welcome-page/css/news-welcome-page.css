@@ -230,6 +230,20 @@ body.visible {
     width: 100%;
 }
 
-.welcome-window.hidden {
+.welcome-window.active {
+    display: block;
+}
+.welcome-window {
     display: none;
+}
+
+@keyframes fadeInt {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
 }

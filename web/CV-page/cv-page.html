@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minerva</title>
+    <link rel="shortcut icon" href="../../web-icon.png" type="image/x-icon">
+    </link>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/cv-page.css">
+</head>
+
+<body>
+    <header data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../global-elements/global.header-user.partial.html">
+    </header>
+    <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./cv-chat.partial.html" >
+    </section>
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../../web/global-elements/global.arrow.partial.html">
+    </aside>
+    <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
+    </footer>
+    <script src="./js/cv-page.js"></script>
+</body>
+
+</html>

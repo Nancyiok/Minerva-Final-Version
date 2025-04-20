@@ -24,14 +24,19 @@
                 <h1 class="job__title">Всі вакансії</h1>
                 <img src="./img/suitcase-for-header.svg" alt="Валіза" class="job__suitcase">
             </div>
-            <p class="job__description">Перегляньте всі актуальні вакансії та знайдіть ідеальну можливість для себе! Ми пропонуємо різноманітні
+            <p class="job__description">Перегляньте всі актуальні вакансії та знайдіть ідеальну можливість для себе! Ми
+                пропонуємо різноманітні
                 позиції для
                 студентів та досвідчених фахівців, де ви зможете реалізувати свої навички та розвиватися в професійному
                 середовищі.</p>
         </div>
         <div class="job__card-container">
+            <div class="window-loading__spinner"></div>
         </div>
     </section>
+    <aside data-hx-trigger="load" data-hx-swap="outerHTML"
+        data-hx-get="../../web/global-elements/global.arrow.partial.html">
+    </aside>
     <footer data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="../global-elements/global.footer.partial.html">
     </footer>
     <script src="./js/vacancies.js"></script>

@@ -1,0 +1,208 @@
+.container-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.section-dashboard{
+    padding: 30px;
+}
+
+.section-dashboard {
+    background-color: var(--dashboard-background-color-section);
+    text-align: center;
+}
+
+.content-today_date {
+    background-color: var(--dashboard-background-color-today-day);
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid var(--decoration-line-color-black);
+    position: relative;
+    cursor: pointer;
+}
+
+/* .section-shedule-meating{
+    width: 100%;
+} */
+
+.content-today__day {
+    text-align: center;
+    text-shadow: 2px 2px 0px var(--black-text-color),
+        -2px -2px 0px var(--black-text-color),
+        2px -2px 0px var(--black-text-color),
+        -2px 2px 0px var(--black-text-color);
+}
+
+.content-today__day {
+    font-size: 9em;
+    font-weight: 600;
+    color: #fff;
+    margin: 10px;
+    position: relative;
+}
+
+.content-today__year {
+    color: var(--light-green-text-color);
+    font-size: 2.1em;
+    font-weight: 600;
+    text-shadow: 1px 1px 0px var(--black-text-color),
+        -1px -1px 0px var(--black-text-color),
+        1px -1px 0px var(--black-text-color),
+        -1px 1px 0px var(--black-text-color);
+    letter-spacing: 2px;
+}
+
+
+.content-today__date-header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.content-today__month {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--black-text-color);
+}
+
+.decoration-star1 {
+    position: absolute;
+    right: 4px;
+    top: 50px;
+
+}
+
+.decoration-star2 {
+    position: absolute;
+    left: 4px;
+    top: 50px;
+
+}
+
+.decoration-star3 {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+
+}
+
+.content-shedule-meating {
+    background-color: var(--dashboard-background-color-user-events);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid var(--decoration-line-color-black);
+
+}
+
+.date-user-events::before {
+    content: '•';
+    font-weight: 700;
+    font-size: 1.8em;
+    vertical-align: center;
+    color: var(--dot-color);
+}
+
+.user-meetings {
+    text-align: left;
+    padding: 4px;
+}
+
+.content-shedule-meating__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-shedule-meating-header{
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--black-text-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container-dashboard h3{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--black-text-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-dashboard__header{
+    font-size: 1.5em;
+    font-weight: 500;
+    color: var(--bright-text-color);
+    text-align: center;
+    padding: 10px;
+}
+
+.event-congrats__container-img{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.content-event-congrats{
+    background-color: var(--dashboard-background-color-special-event);
+    padding: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid var(--decoration-line-color-black);
+}
+
+.content-event-congrats__header{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--black-text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.date-user-events{
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-accent-color);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.section-dashboard__header{
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 30px 0;
+}
+
+.date-user-events__date, .date-user-events__time{
+    color: var(--black-text-color);
+    font-weight: 600;
+}
+
+
+
+.section-event-congrats, .section-shedule-meating, .section-today_date{
+    background-color: var(--dashboard-background-shadow-color);
+    border-radius: 30px;
+    transition: all 0.9s ease;
+}
+
+.date-user-events-none{
+    font-size: 1.3em;
+    font-weight: 500;
+    color: var(--text-accent-color);
+    text-align: center;
+    margin-bottom: 5px;
+}

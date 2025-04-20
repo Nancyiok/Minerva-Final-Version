@@ -1,5 +1,6 @@
 function init() {
     import("./vacancy.js");
+    
     import("../../js/global/header.js");
 }
 const totalPartials = document.querySelectorAll(

@@ -3,6 +3,7 @@ function init() {
     import("./modal-window.js");
     import("../../js/global/header.js");
     import("./search-vacancies.js");
+    import("../../../dist/drag-windows.js");
 }
 const totalPartials = document.querySelectorAll(
     '[hx-trigger="load"], [data-hx-trigger="load"]'

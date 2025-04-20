@@ -115,10 +115,10 @@ function CalendarControl() {
             document.querySelector(".calendar-body").addEventListener("click", (e) => {
                 if (!e.target.classList.contains("dateNumber")) return;
 
-                console.log(
-                    `${e.target.textContent} ${calendarControl.calMonthName[calendar.getMonth()]
-                    } ${calendar.getFullYear()}`
-                );
+                // console.log(
+                //     `${e.target.textContent} ${calendarControl.calMonthName[calendar.getMonth()]
+                //     } ${calendar.getFullYear()}`
+                // );
 
                 e.preventDefault();
                 selectedDate = document.querySelector(".calendar-selected-date");
@@ -307,45 +307,46 @@ function chooseTime() {
 }
 
 const calendarControl = new CalendarControl();
-async function getFillMeetings() {
-    try {
-        const getFillDays = await fetch(`${serverURL}/api/Calendar/GlobalCanendar`,
-            {
-                method: "GET",
-                headers: {
-                    "ngrok-skip-browser-warning": "true"
-                },
-            });
+export default async function getFillMeetings() {
+        try {
+            const getFillDays = await fetch(`${serverURL}/api/Calendar/GlobalCanendar`,
+                {
+                    method: "GET",
+                    headers: {
+                        "ngrok-skip-browser-warning": "true"
+                    },
+                });
 
-        if (getFillDays.ok) {
-            const data = await getFillDays.json();
-            console.log(data);
-            const calendarMonthlabel = document.querySelector(".calendar-month-label");
-            const calenderYearlabel = document.querySelector(".calendar-year-label");
-            const calendarBody = document.querySelector(".calendar-body");
-            const timesContainer = document.querySelector(".times-container");
-            for (let date of data) {
-                let dataNow = new Date(date);
-                dataPlanMeeting.push(dataNow);
-                let selectedDate = dataNow.getDate();
-                let selectedMounth = MonthName[dataNow.getMonth()];
-                let selectedYear = dataNow.getFullYear();
-                if (calendarMonthlabel.textContent == selectedMounth && calenderYearlabel.textContent == selectedYear) {
-                    const dateElement = document.querySelector(`.number-item[data-num="${selectedDate}"]`);
-                    if (dateElement) {
-                        dateElement.classList.add("calendar-meeting-planed");
-
+            if (getFillDays.ok) {
+                const data = await getFillDays.json();
+                const calendarMonthlabel = document.querySelector(".calendar-month-label");
+                const calenderYearlabel = document.querySelector(".calendar-year-label");
+                const calendarBody = document.querySelector(".calendar-body");
+                const timesContainer = document.querySelector(".times-container");
+                for (let date of data) {
+                    let dataNow = new Date(date);
+                    dataPlanMeeting.push(dataNow);
+                    let selectedDate = dataNow.getDate();
+                    let selectedMounth = MonthName[dataNow.getMonth()];
+                    let selectedYear = dataNow.getFullYear();
+                    if (calendarMonthlabel.textContent == selectedMounth && calenderYearlabel.textContent == selectedYear) {
+                        const dateElement = document.querySelector(`.number-item[data-num="${selectedDate}"]`);
+                        if (dateElement) {
+                            dateElement.classList.add("calendar-meeting-planed");
+                        }
                     }
+
                 }
             }
         }
-    }
 
-    catch (error) {
-        console.error("Помилка при отриманні заповнених днів:", error);
-    }
-
+        catch (error) {
+            console.error("Помилка при отриманні заповнених днів:", error);
+        }
+    
 }
+
+
 
 function selectTime() {
     const timeLabels = document.querySelectorAll(".calendar-time");
@@ -354,42 +355,43 @@ function selectTime() {
             e.preventDefault();
             const selectedTime = e.target.textContent;
             selectedMeetingTime = `${selectedTime}`;
-            selectDate.innerHTML = `<p>Ви обрали дату: <span class="date-span-selected">${selectedMeetingDate}</span><span class="time-span-selected">${selectedMeetingTime}</span><p>`;
+            selectDate.innerHTML = `<p>Ви обрали дату: <span class="date-span-selected">${selectedMeetingDate}</span><span class="time-span-selected"> ${selectedMeetingTime}</span><p>`;
         });
     });
 }
-
 function getFillMeetingsTime(selectedDate) {
     const timeLabels = document.querySelectorAll(".calendar-time");
+    const currentYear = +document.querySelector(".calendar-year-label").textContent;
+    const currentMonth = document.querySelector(".calendar-month-label").textContent;
+
+    timeLabels.forEach((time) => {
+        time.style.pointerEvents = "auto";
+        time.classList.remove("calendar-meeting-planed");
+        time.style.backgroundColor = "";
+    });
+
     for (let date of dataPlanMeeting) {
         let dataNow = new Date(date);
-        let selectedDateNum = dataNow.getDate().toString();
-        let selectedMonth = MonthName[dataNow.getMonth()];
-        let selectedYear = dataNow.getFullYear();
+
+        let dateNum = dataNow.getDate(); 
+        let month = MonthName[dataNow.getMonth()];
+        let year = dataNow.getFullYear();
+
 
         if (
-            selectedMonth === MonthName[dataNow.getMonth()] &&
-            selectedYear === new Date().getFullYear() &&
-            selectedDate === selectedDateNum
+            month === currentMonth &&
+            year === currentYear &&
+            dateNum === Number(selectedDate)
         ) {
+            const hour = `${dataNow.getHours()}:00`;
             timeLabels.forEach((time) => {
-                if (time.textContent === `${dataNow.getHours()}:00`) {
+                if (time.textContent === hour) {
                     time.classList.add("calendar-meeting-planed");
                     time.style.backgroundColor = "#f6bbbb";
                     time.style.pointerEvents = "none";
                 }
-                else {
-                    time.style.pointerEvents = "auto";
-                    time.classList.remove("calendar-meeting-planed");
-                    time.style.backgroundColor = "";
-                    // time.addEventListener("click", (e) => {
-                    //     e.preventDefault();
-                    //     e.stopPropagation();
-                    // })
-                }
             });
         }
-        selectTime();
     }
 }
 
@@ -413,7 +415,6 @@ const response = await fetch(`${serverURL}/api/users/${sessionStorage.getItem("i
 
 if (response.ok) {
     const data = await response.json();
-    console.log(data)
     nameInput.value = data.name;
     surnameInput.value = data.surname;
     emailInput.value = data.email;

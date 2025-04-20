@@ -1,4 +1,5 @@
 import serverURL from "../../js/global/server-url.js";
+import getFillMeetings from "./calendar.js";
 const interviewPlanning = document.querySelector(".interview-planning");
 const emailInput = interviewPlanning.querySelector(".interview-planning__input--email");
 const emailErrorHandle = interviewPlanning.querySelector(".error-handle-email");
@@ -8,7 +9,7 @@ const nameInput = interviewPlanning.querySelector(".interview-planning__input--n
 const nameErrorHandle = interviewPlanning.querySelector(".error-handle-name");
 const submitFormButton = interviewPlanning.querySelector(".interview-planning__button");
 const textArea = interviewPlanning.querySelector(".interview-planning__input--textarea");
-
+const errorCalendarLabel = interviewPlanning.querySelector(".error-label-for-calendar");
 const uaToEnMonthMap = {
     "Січ": "01",
     "Лют": "02",
@@ -43,6 +44,7 @@ emailInput.addEventListener("input", (e) => {
     if (!isValidEmail(e.target.value)) {
         emailErrorHandle.innerHTML = "Некоректна електронна адреса";
         emailInput.classList.add("error-input");
+        submitFormButton.removeEventListener("click", sentToServer);
     }
 
     else {
@@ -56,6 +58,7 @@ surnameInput.addEventListener("input", (e) => {
     if (!isValidUkrainianSurname(e.target.value)) {
         surnameErrorHandle.innerHTML = "Некоректне прізвище";
         surnameInput.classList.add("error-input");
+        submitFormButton.removeEventListener("click", sentToServer);
     }
 
     else {
@@ -68,6 +71,7 @@ nameInput.addEventListener("input", (e) => {
     if (!isValidUkrainianName(e.target.value)) {
         nameErrorHandle.innerHTML = "Некоректне ім'я";
         nameInput.classList.add("error-input");
+        submitFormButton.removeEventListener("click", sentToServer);
     }
     else {
         nameErrorHandle.innerHTML = "";
@@ -75,8 +79,24 @@ nameInput.addEventListener("input", (e) => {
     }
 })
 
-console.log(parseInt(sessionStorage.getItem("id")));
-submitFormButton.addEventListener("click", async (e) => {
+function checkDateTime() {
+    const regex = /^Ви обрали дату:\s\d{1,2} (Січ|Лют|Бер|Кві|Тра|Чер|Лип|Сер|Вер|Жов|Лис|Гру) \d{4} \d{1,2}:\d{2}$/;
+    const plannedDateTime = interviewPlanning.querySelector(".label-for-calendar");
+    console.log(plannedDateTime.textContent);
+    return regex.test(plannedDateTime.textContent);
+}
+
+
+submitFormButton.addEventListener("click", sentToServer);
+
+async function sentToServer() {
+    if (!checkDateTime()) {
+        errorCalendarLabel.style.display = "block";
+        setTimeout(() => {
+            errorCalendarLabel.style.display = "none";
+        }, 2000);
+        return;
+    }
     const selectedDate = interviewPlanning.querySelector(".date-span-selected").innerText;
     const selectedTime = interviewPlanning.querySelector(".time-span-selected").innerText;
     let [d, m, y] = selectedDate.split(" ");
@@ -102,16 +122,16 @@ submitFormButton.addEventListener("click", async (e) => {
             interviewPlanning.querySelector(".thanks-for-record-metting").classList.add("active");
             interviewPlanning.querySelector(".interview-planning__container").classList.add("active");
             interviewPlanning.querySelector(".interview-planning__calendar-container").classList.add("active");
-
             setTimeout(() => {
                 interviewPlanning.querySelector(".thanks-for-record-metting").classList.remove("active");
                 interviewPlanning.querySelector(".interview-planning__container").classList.remove("active");
                 interviewPlanning.querySelector(".interview-planning__calendar-container").classList.remove("active");
+                document.querySelector(".calendar-selected-date").classList.remove("calendar-selected-date");
             }, 3000);
+            getFillMeetings();
+            interviewPlanning.querySelector(".label-for-calendar").textContent = "Оберіть коректну дату та час для співбесіди.";
         }
     } catch (error) {
-        console.error("Ошибка при добавлении события:", error);
+        console.error("Помилка додавання події", error);
     }
-
-    console.log(new Date(`${y}-${m}-${d}T${selectedTime}:00`));
-});
+}

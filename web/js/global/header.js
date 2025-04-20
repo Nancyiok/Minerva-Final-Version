@@ -36,9 +36,8 @@ headerNavigationMenuItemContainerComputer.addEventListener("click", () => {
 });
 
 
- 
 
-if (sessionStorage.getItem("id")) {
+if (sessionStorage.getItem("id") !== "undefined") {
     const userPhoto = document.querySelector(".user-account-button__img");
     const response = await fetch(`${serverURL}/api/users/${sessionStorage.getItem("id") }/FullInfo`, {
         method: 'GET',
@@ -46,14 +45,16 @@ if (sessionStorage.getItem("id")) {
             "ngrok-skip-browser-warning": "true"
         }
     });
-    if (response.ok) {
+    if (response.ok && userPhoto) {
         const data = await response.json();
         userPhoto.src = data.photo
             ? `data:image/jpeg;base64,${data.photo}`
             : "/web/global-elements/global-elements-img/user-icon.svg";
+        userPhoto.style.animation = 'fadeInt 0.5s ease-in-out';
+        userPhoto.style.transition = 'all 0.5 ease';
     } else {
         const error = await response.text();
-        alert(`Помилка: ${error}`);
+        console.log(`Помилка: ${error}`);
     }
 }
 

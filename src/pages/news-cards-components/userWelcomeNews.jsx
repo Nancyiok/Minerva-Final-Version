@@ -62,6 +62,11 @@ function UserWelcomeNews() {
 
         if (newsData.length > 0) {
             loadImages();
+            document.querySelectorAll(".user-welcome-news-card__img").forEach((img)=>{
+                img.style.animation = 'fadeInt 0.5s ease-in-out';
+                img.style.transition = 'all 0.5 ease'
+            })
+            
         }
     }, [newsData]);
 
@@ -80,15 +85,16 @@ function UserWelcomeNews() {
                                 <UserWelcomeNewsCard
                                     key={news.id}
                                     id={news.id}
-                                    imgSrc={imageURLs[news.id] || "/default-image.jpg"}
+                                    imgSrc={imageURLs[news.id] || "./img/photo-before-download.svg"}
                                     title={news.title}
                                     description={news.description}
                                     onClick={() => handleArticleClick(news.id)}
                                 />
                             ))}
                         </>
-                    ) : (
-                        <div className="window-loading__spinner"></div>
+                    ) : (<div className="user-welcome-news-card-container">
+                            
+                            </div>
                     )}
                 </div>
             </div>
@@ -106,7 +112,7 @@ async function loadImage(url) {
         return URL.createObjectURL(blob);
     } catch (error) {
         console.error("Помилка завантаження:", error);
-        return "/default-image.jpg"; 
+        // return "/default-image.jpg"; 
     }
 }
 

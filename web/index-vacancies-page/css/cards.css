@@ -1,0 +1,223 @@
+.jobs__header {
+    background-color: var(--card-serch-job-background);
+    text-align: center;
+    padding: 30px;
+    color: var(--bright-text-color)
+}
+
+.jobs__header h1 {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 900px) {
+    .jobs__header h1 {
+        font-size: 2rem;
+    }
+}
+
+.job__card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-dark);
+}
+
+
+.card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 350px;
+    min-width: 200px;
+    background-color: var(--card-serch-job-background);
+    border-radius: 10px;
+    border: 2px solid var(--black-text-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    animation: fadeInt 0.5s ease-in-out;
+    transition: all 0.5 ease;
+}
+
+.card__text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card__icon img {
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.search-job__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card__title,
+.card__description {
+    color: var(--bright-text-color);
+}
+
+.card__title {
+    font-weight: 600;
+}
+
+.card__description {
+    opacity: 0.8;
+}
+
+
+
+.card__button {
+    display: inline;
+    border: 1px solid var(--bright-text-color);
+    background-color: transparent;
+    border-radius: 10px;
+    color: var(--bright-text-color);
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    padding: 15px 30px;
+}
+
+.card__button:hover {
+    background-color: var(--bright-text-color);
+    border-radius: 10px;
+    color: var(--button-dark-color);
+    font-weight: 600;
+}
+
+
+.card__title {
+    font-size: 1.1rem;
+}
+
+.card__description {
+    font-size: 1rem;
+}
+
+.search-job__filter h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+@media (min-width: 900px) {
+    .card__title {
+        font-size: 1.2rem;
+    }
+
+    .card__description {
+        font-size: 1.1rem;
+    }
+
+    .search-job__filter h2 {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+}
+
+
+.job__card-container>.card:nth-child(even) {
+    background-color: var(--card-serch-job-background-accent);
+}
+
+.job__card-container>.card:nth-child(even) .card__title,
+.job__card-container>.card:nth-child(even) .card__description {
+    color: var(--card-serch-job-background);
+}
+
+.job__card-container>.card:nth-child(even) .card__description {
+    opacity: 0.7;
+}
+
+.job__card-container>.card:nth-child(even) .card__button {
+    border: 1px solid var(--button-dark-color);
+    background-color: transparent;
+    border-radius: 10px;
+    color: var(--button-dark-color);
+}
+
+.job__card-container>.card:nth-child(even) .card__button:hover {
+    background-color: var(--button-dark-color);
+    color: var(--bright-text-color);
+}
+
+.job__title {
+    padding: 10px;
+}
+
+.job__description {
+    font-size: 1.1rem;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+@media (min-width: 500px) {
+    .job__description {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (min-width: 700px) {
+    .job__description {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (min-width: 900px) {
+    .job__description {
+        font-size: 1.4rem;
+    }
+
+}
+
+.job__header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.job__description {
+    padding: 20px 0;
+}
+
+.window-loading__spinner {
+    border: 8px solid var(--background-drop-header-menu);
+    border-top: 8px solid #ffffff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    display: block;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

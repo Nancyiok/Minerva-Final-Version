@@ -20,8 +20,9 @@
     .complaint-form__title-thanks {
         font-size: 1.4rem;
     }
-    
+
 }
+
 .faq-overlay {
     display: none;
 }
@@ -479,4 +480,16 @@ textarea {
     font-family: Montserrat,
         sans-serif;
 
+}
+
+.input-field-email.incorrect,
+.input-field-title.incorrect, 
+.textarea-field.incorrect {
+    background-color: var(--input-error-background-color);
+    border: 2px solid var(--incorrect-border);
+}
+
+.message-for-user{
+    color: var(--faq-form-message-error);
+    padding: 20px;
 }

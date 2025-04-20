@@ -36,7 +36,7 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 30px;
     font-size: 0.9rem;
 }
@@ -62,6 +62,7 @@
         justify-content: center;
         gap: 30px;
         font-size: 1.1rem;
+        max-width: 700px;
     }
 
 }
@@ -176,13 +177,6 @@
     background-color: var(--button-dark-color-hover);
 }
 
-.job-posting__logo-container {
-    border: 3px solid var(--decoration-line-color-green-light);
-}
-
-.job-posting__logo-container img {
-    max-width: 200px;
-}
 
 .job-posting__title {
     font-weight: 600;

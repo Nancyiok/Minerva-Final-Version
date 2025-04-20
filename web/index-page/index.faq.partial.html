@@ -45,7 +45,7 @@
                 <button class="accordion__button">У мене виникли проблеми, куди звертатися?</button>
                 <div class="accordion__content">
                     <p class="accordion__text">
-                        Всі зареєстровані користувачі мають можливість звернутися до адміністрації сайту, і наші
+                        Всі користувачі мають можливість звернутися до адміністрації сайту, і наші
                         професійні модератори допоможуть вам у вирішенні будь-яких нагальних питань.
                     </p>
                 </div>
@@ -95,11 +95,14 @@
                     </header>
                     <br>
                     <form class="complaint-form">
+                        <input type="email" id="email-question" name="email"
+                            placeholder="Ваш e-mail для зворотнього зв'язку" class="input-field input-field-email">
                         <input type="text" id="title" name="title" placeholder="Напишіть тему звернення"
-                            class="input-field">
-                        <p></p>
+                            class="input-field input-field-title">
                         <textarea type="text" id="complaint" name="complaint" rows="4" placeholder="Ваше звернення..."
                             class="textarea-field"></textarea>
+                        <p class="message-for-user"></p>
+                        <div class="thanks-for-message"></div>
                         <div class="submit-container">
                             <input type="button" value="Відправити" class="submit-button">
                         </div>

@@ -57,7 +57,6 @@ function checkStep1() {
     return true;
 }
 
-//.sign-up-form__input
 
 function checkStep2() {
     const email = document.querySelector(".sign-up-form__input--email").value;

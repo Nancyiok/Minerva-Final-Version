@@ -58,9 +58,9 @@
     border-radius: 4px;
 } */
 
-.calendar .calendar-inner .calendar-body div.empty-dates:hover {
+/* .calendar .calendar-inner .calendar-body div.empty-dates:hover {
     border: 1px solid transparent;
-}
+} */
 
 .calendar .calendar-inner .calendar-controls {
     display: grid;
@@ -137,7 +137,6 @@
 
 .calendar .calendar-inner .calendar-body .prev-dates:hover,
 .calendar .calendar-inner .calendar-body .next-dates:hover {
-    border: 1px solid transparent;
     pointer-events: none;
 }
 

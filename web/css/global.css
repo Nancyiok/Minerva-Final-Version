@@ -11,7 +11,8 @@
 :root {
   --button-dark-color: #1F545B;
   --bright-color-white: #D7FAFF;
-  --dark-text-color: #1F545B;
+  --background-color-white: #ffffff;
+  --dark-text-color: #023137;
   --dark-background-color: #1F545B;
   --black-text-color: #000000;
   --decoration-line-color-black: #000000;
@@ -51,11 +52,15 @@
   --incorrect-background: #fce6e6;
   --incorrect-border: #ff6c6c;
   --login-form-message-error: #ff6c6c;
+  --interview-form-message-error: #ff6c6c;
+  --faq-form-message-error: #ff6c6c;
   --input-error-background-color: #f8d4d4;
   --footer-background-color: #D0EDEB;
+  --contacts-section-background-color: #D0EDEB;
   --table-background-color: #D0EDEB;
   --button-decoration-color: #1F545B;
   --green-text-color: #1F545B;
+  --background-dark-color: #1F545B;
   --form-decoration-color: #1F545B;
   --button-decoration-color: #1F545B;
   --form-registration-message-success: #80e080;
@@ -86,6 +91,7 @@
   --job-article-background-color: #F0FFFE;
   --job-article-header-background-color: #1691A1;
   --article-accent-color: #1691A1;
+  --text-accent-color: #1691A1;
   --border-faq-section: #DFF4F2;
   --calendar-bg-color: #CDEEEB;
   --calendar-font-color: #000000;
@@ -109,9 +115,26 @@
   --calendar-input-background-color: #DFF4F2;
   --calendar-section-background-color: #1691A1;
   --table-border-color: #0f3e44;
+  --dot-color: #0f3e44;
+  --dashboard-background-color-today-day: #1691A1;
+  --dashboard-background-color-user-events: #F0FFFE;
+  --dashboard-background-color-special-event: #F0FFFE;
+  --dashboard-background-color-section: #1F545B;
+  --dashboard-background-shadow-color: #112F33;
+  --light-green-text-color: #CDEEEB;
+  --background-color-for-cv-chat: #4AA4B0;
+  --background-color-for-cv-chat-box: #ffffff;
+  --background-color-for-cv-chat-header: #B3E7E2;
+  --background-user-message: #B3F2EE;
+  --background-color-ai-message: #DAEBEA;
+  --background-color-for-cv-chat-border: #000000;
+  --relogin-background-color: #45929C;
+  --white-background-color: #ffffff;
+  --decoration-line-red: #f07f7f;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
 }
+
 
 img {
   display: block;
@@ -133,8 +156,6 @@ h1 span {
   max-width: 1200px;
   margin: auto;
 }
-
-
 
 button {
   font-size: 17px;
@@ -182,3 +203,42 @@ input {
   opacity: 1;
   transform: translateY(0);
 }
+
+.scroll-to-top {
+  position: fixed;
+  background-color: var(--button-dark-color);
+  color: var(--bright-text-color);
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+@media (min-width: 700px) {
+  .scroll-to-top {
+    font-size: 3rem;
+    padding-bottom: 7px;
+  }
+
+}
+
+@media (min-width: 1000px) {
+  .scroll-to-top:hover {
+    background-color: var(--arrow-color-background);
+    color: var(--decoration-line-color-black);
+    transform: scale(1.1);
+  }
+
+}
+

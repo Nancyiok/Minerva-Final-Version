@@ -8,10 +8,7 @@ function ArticleContent({ data }) {
     useEffect(() => {
         if (data.article_file) {
             const decodedContent = decodeBase64(data.article_file);
-            replaceImageSourcesInHtml(decodedContent).then((updatedContent) => {
-                setContent(updatedContent);
-                setIsLoading(false);
-            });
+            setContent(decodedContent);
         }
     }, [data.article_file]);
 
@@ -40,20 +37,43 @@ function decodeBase64(base64String) {
         const decoder = new TextDecoder('utf-8');
         return decoder.decode(bytes);
     } catch (e) {
-        console.error('Ошибка декодирования Base64:', e);
+        console.error('Помилка декодування Base64:', e);
         return '';
     }
 }
 
-async function replaceImageSourcesInHtml(htmlString) {
-    const updatedHtml = htmlString
-        .replace(/\$\{serverURL\}/g, serverURL) 
-        .replace(/\\/g, '/');                  
+// const allArticlesImages = document.querySelectorAll('.PhotoArticle');
 
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = updatedHtml;
+// async function loadImage(url) {
+//     try {
+//         const response = await fetch(url);
+//         if (!response.ok) throw new Error("Помилка завантаження зображення");
+//         const blob = await response.blob();
+//         return URL.createObjectURL(blob);
+//     } catch (error) {
+//         console.error("Помилка завантаження:", error);
+//     }
+// }
 
-    return tempDiv.innerHTML;
-}
+// function replaceImagesUrl() {
+//     allArticlesImages.forEach(async (img) => {
+//         const imgSrc = img.getAttribute('src');
+//         if (imgSrc) {
+//             const newImgSrc = await loadImage(`${serverURL}${imgSrc}`);
+//             img.setAttribute('src', newImgSrc);
+//         }
+//     });
+// }
+
+// async function replaceImageSourcesInHtml(htmlString) {
+//     const updatedHtml = htmlString
+//         .replace(/\$\{serverURL\}/g, serverURL) 
+//         .replace(/\\/g, '/');                  
+
+//     const tempDiv = document.createElement('div');
+//     tempDiv.innerHTML = updatedHtml;
+
+//     return tempDiv.innerHTML;
+// }
 
 export default ArticleContent;

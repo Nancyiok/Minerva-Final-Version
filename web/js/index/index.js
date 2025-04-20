@@ -4,6 +4,7 @@ function init() {
     import("./faq.js");
     import("./partners.js");
     import("./team-section-form-validation.js");   
+    import("./proposals-modal.js")
 }
 const totalPartials = document.querySelectorAll(
     '[hx-trigger="load"], [data-hx-trigger="load"]'

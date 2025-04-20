@@ -18,9 +18,7 @@ function renderCarousel(slides) {
 }
 
 function calculateSlidesToShow() {
-    if (window.matchMedia("(min-width:768px)").matches) {
-        return 3;
-    } else if (window.matchMedia("(min-width:580px)").matches) {
+    if (window.matchMedia("(min-width:580px)").matches) {
         return 2;
     } else {
         return 1;
