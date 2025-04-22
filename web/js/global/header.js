@@ -37,7 +37,7 @@ headerNavigationMenuItemContainerComputer.addEventListener("click", () => {
 
 
 
-if (sessionStorage.getItem("id") == "") {
+if (!sessionStorage.getItem("id") == "") {
     const userPhoto = document.querySelector(".user-account-button__img");
     const response = await fetch(`${serverURL}/api/users/${sessionStorage.getItem("id") }/FullInfo`, {
         method: 'GET',

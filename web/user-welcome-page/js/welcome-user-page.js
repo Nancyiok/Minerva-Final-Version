@@ -1,5 +1,6 @@
 function init() {
-    import("../../js/global/lazy-loading.js")
+    import("../../js/global/lazy-loading.js");
+    import("../../../dist/newsPage.js");
     import("./modal-window.js");
     import("../../js/global/header.js");
     import("./search-vacancies.js");
