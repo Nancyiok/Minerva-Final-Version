@@ -20,8 +20,9 @@ function base64ToBlob(base64, mimeType = "application/pdf") {
 
 async function makeRestrictForRequest() {
     if (sessionStorage.getItem("cvChecked")) {
+        sendCVButton.src="./img/prohibit-sending.svg";
         sendCVButton.removeEventListener("click", sendCVToServer);
-        console.log("cvChecked")
+        console.log("cvChecked");
         labelForCV.innerHTML = "Ваше резюме вже перевірено";
         fileInputCV.disabled = true;
         fileInputCV.style.pointerEvents = "none";
@@ -85,6 +86,7 @@ async function sendCVToServer() {
             console.log("OK: ", response.message);
             loadingSpinnerMessage.style.display = "none";
             const answer = await response.text();
+            sessionStorage.setItem("cvChecked", "yes");
             resposeFromAi(answer);
             makeRestrictForRequest();
         }
@@ -93,7 +95,6 @@ async function sendCVToServer() {
         console.error("Error:", e);
     }
 
-    sessionStorage.setItem("cvChecked", "yes");
 }
 
 

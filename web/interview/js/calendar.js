@@ -206,10 +206,10 @@ function CalendarControl() {
             let nextBtn = document.querySelector(".calendar .calendar-next a");
             let todayDate = document.querySelector(".calendar .calendar-today-date");
             let dateNumber = document.querySelectorAll(".calendar .dateNumber");
-            prevBtn.addEventListener(
-                "click",
-                calendarControl.navigateToPreviousMonth
-            );
+            // prevBtn.addEventListener(
+            //     "click",
+            //     calendarControl.navigateToPreviousMonth
+            // );
             nextBtn.addEventListener("click", calendarControl.navigateToNextMonth);
             todayDate.addEventListener(
                 "click",

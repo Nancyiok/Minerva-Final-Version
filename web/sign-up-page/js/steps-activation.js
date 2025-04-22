@@ -230,7 +230,7 @@ nextButton.addEventListener("click", async (event) => {
                     const result = await verificationCode.json();
                     const code = result.code;
                     sessionStorage.setItem("id", result.id);
-                    console.log("Code:", code);
+                    // console.log("Code:", code);
                     spinnerLoading.classList.remove("active");
                     indicator2.classList.remove("current");
                     indicator2.classList.add("done");

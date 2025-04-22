@@ -278,3 +278,7 @@
 .load-arrows .active{
     animation: spin 2s linear infinite;
 }
+
+.job-posting__logo{
+    max-width: 300px;
+}

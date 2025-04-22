@@ -52,7 +52,7 @@ async function createCard(data, container) {
     cardText.appendChild(h3);
     cardText.appendChild(p);
     const a = document.createElement("a");
-    const url = `../job-article-page/job-page-article.html?id=${data.id}`
+    const url = `../../web/sign-up-page/sign-up-page.html`
     console.log(url);
     a.href = url;
     a.classList.add("card__button");

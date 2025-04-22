@@ -6,6 +6,7 @@ const formMessage = document.querySelector(".message-for-user");
 const emailInput = faqSection.querySelector("#email-question");
 const titleInput = faqSection.querySelector(".input-field-title");
 const textareaInput = faqSection.querySelector(".textarea-field");
+const submitButton =  faqSection.querySelector(".submit-button");
 document.querySelectorAll(".accordion__button").forEach((button) => {
     button.addEventListener("click", () => {
         const content = button.nextElementSibling;
@@ -35,12 +36,13 @@ function validateEmail(email) {
         formMessage.innerText = "Введіть коректну електронну адресу";
         const emailInput = faqSection.querySelector(".input-field-email");
         emailInput.classList.add("incorrect");
-        faqSection.querySelector(".submit-button").removeEventListener("click", function (event) { sendToServer(event) });
+        submitButton.disabled = true; 
+
     }
     else {
-        faqSection.querySelector(".submit-button").addEventListener("click", function (event) { sendToServer(event) });
         formMessage.innerText = "";
         emailInput.classList.remove("incorrect");
+        submitButton.disabled = false;
     }
 }
 
@@ -54,33 +56,34 @@ titleInput.addEventListener("input", function () {
     if (titleInput.value.length < 5) {
         formMessage.innerText = "Тема звернення повинна містити не менше 5 символів";
         const titleInput = faqSection.querySelector(".input-field-title");
-        faqSection.querySelector(".submit-button").removeEventListener("click", function (event) { sendToServer(event) });;
         titleInput.classList.add("incorrect");
+        submitButton.disabled = true; 
     }
     else {
-        faqSection.querySelector(".submit-button").addEventListener("click", function (event) { sendToServer(event) });
         formMessage.innerText = "";
         titleInput.classList.remove("incorrect");
+        submitButton.disabled = false;
     }
 }
 );
+
+submitButton.addEventListener("click", function (event) { sendToServer(event) });
 
 textareaInput.addEventListener("input", function () {
     if (textareaInput.value.length < 10) {
         formMessage.innerText = "Ваше звернення повинно містити не менше 10 символів";
         const textareaInput = faqSection.querySelector(".textarea-field");
-        faqSection.querySelector(".submit-button").removeEventListener("click", function (event) { sendToServer(event) });;
         textareaInput.classList.add("incorrect");
+        submitButton.disabled = true; 
     }
     else {
-        faqSection.querySelector(".submit-button").addEventListener("click", function (event) { sendToServer(event) });;
         formMessage.innerText = "";
         textareaInput.classList.remove("incorrect");
+        submitButton.disabled = false;
     }
 }
 );
 
-faqSection.querySelector(".submit-button").addEventListener("click", function (event) { sendToServer(event) });
 
 buttonContactUs.addEventListener("click", function () {
     faqSection.querySelector(".faq-overlay").classList.add("active");
@@ -132,7 +135,7 @@ async function sendToServer(e) {
         }),
     })
     if (response.ok) {
-        faqSection.querySelector(".thanks-for-message").innerHTML =  `
+        faqSection.querySelector(".thanks-for-message").innerHTML = `
 <div class="complaint-form__title-thanks">
     <p>Дякуємо за ваше звернення!</p>
     <div><svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">

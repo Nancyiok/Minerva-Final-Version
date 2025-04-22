@@ -70,6 +70,8 @@ saveChangesButton.addEventListener("click", async () => {
 
         if (response.ok) {
             console.log("OK: ", response.message);
+            requestPhotoUser();
+
         }
         else {
             const error = await response.json();
@@ -91,3 +93,26 @@ saveChangesButton.addEventListener("click", async () => {
 });
 
 
+async function requestPhotoUser() {
+    if (!sessionStorage.getItem("id") == "") {
+        const userPhoto = document.querySelector(".user-account-button__img");
+        const response = await fetch(`${serverURL}/api/users/${sessionStorage.getItem("id")}/FullInfo`, {
+            method: 'GET',
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            }
+        });
+        if (response.ok && userPhoto) {
+            const data = await response.json();
+            userPhoto.src = data.photo
+                ? `data:image/jpeg;base64,${data.photo}`
+                : "/web/global-elements/global-elements-img/user-icon.svg";
+            userPhoto.style.animation = 'fadeInt 0.5s ease-in-out';
+            userPhoto.style.transition = 'all 0.5 ease';
+        } else {
+            const error = await response.text();
+            console.log(`Помилка: ${error}`);
+        }
+    }
+
+}

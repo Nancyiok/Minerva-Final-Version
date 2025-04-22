@@ -107,7 +107,7 @@
 
 .faq {
     text-align: center;
-    background: url("../index-page-img/index-faq-section-background.svg") no-repeat;
+    background: url("../../index-page/index-page-img/index-faq-section-background.svg") no-repeat;
     min-width: 100%;
     min-height: 100vh;
     background-position: center;
@@ -117,7 +117,7 @@
 @media (min-width: 1000px) {
     .faq {
         text-align: center;
-        background: url("../index-page-img/index-faq-section-background-computer.svg") no-repeat;
+        background: url("../../index-page/index-page-img/index-faq-section-background-computer.svg") no-repeat;
         min-width: 100%;
         min-height: 100vh;
         background-position: center;
