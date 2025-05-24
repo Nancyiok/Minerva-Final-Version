@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 function ArticleFooter({ data }) {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     console.log(data);
-    const [linkToShare, setLinkToShare] = useState(`../article-page/article.html?id=${data.id}`);
+    const [linkToShare, setLinkToShare] = useState(`../../web/article-page/article.html?id=${data.id}`);
     const handleShareClick = () => {
         if (navigator.share) {
             navigator.share({

@@ -1,6 +1,3 @@
-import React from "react";
-import serverURL from "../../../web/js/global/server-url.js";
-
 async function readArticle(id) {
     sessionStorage.setItem("newsArticleId", JSON.stringify(id));
     console.log("Saved article ID to session:", id);
@@ -26,19 +23,5 @@ function UserWelcomeNewsCard({ id, imgSrc, title, description }) {
         </div>
     );
 }
-
-
-// async function loadImage(url) {
-//     try {
-//         const response = await fetch(url, {
-//             headers: { "ngrok-skip-browser-warning": "true" },
-//         });
-//         if (!response.ok) throw new Error("Помилка завантаження зображення");
-//         const blob = await response.blob();
-//         return URL.createObjectURL(blob);
-//     } catch (error) {
-//         console.error("Помилка завантаження:", error);
-//     }
-// }
 
 export default UserWelcomeNewsCard;
